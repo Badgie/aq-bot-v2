@@ -3,6 +3,7 @@ package tools;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.image.BufferedImage;
 
@@ -63,20 +64,46 @@ public class ScreenCapture {
                 screenLabel.repaint();
                 selectionLabel.setText("Rectangle: " + captureRect);
             }
+
+        });
+
+        screenLabel.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent mouseEvent) {
+                System.out.println("Rectangle of interest: \n" +
+                        "x: " + captureRect.x + "\n" +
+                        "y: " + captureRect.y + "\n" +
+                        "px: " + (double)(captureRect.getX() / screen.getWidth()) + "\n" +
+                        "py: " + (double)(captureRect.getY() / screen.getHeight()) + "\n\n" +
+                        "w: " + captureRect.getWidth() + "\n" +
+                        "h: " + captureRect.getHeight() + "\n" +
+                        "pw: " + (double)(captureRect.getWidth() / screen.getWidth()) + "\n" +
+                        "ph: " + (double)(captureRect.getHeight() / screen.getHeight()) + "\n"
+                );
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent mouseEvent) {
+
+            }
         });
 
         JOptionPane.showMessageDialog(null, panel);
-
-        System.out.println("Rectangle of interest: \n" +
-                "x: " + captureRect.x + "\n" +
-                "y: " + captureRect.y + "\n" +
-                "px: " + (double)(captureRect.getX() / screen.getWidth()) + "\n" +
-                "py: " + (double)(captureRect.getY() / screen.getHeight()) + "\n\n" +
-                "w: " + captureRect.getWidth() + "\n" +
-                "h: " + captureRect.getHeight() + "\n" +
-                "pw: " + (double)(captureRect.getWidth() / screen.getWidth()) + "\n" +
-                "ph: " + (double)(captureRect.getHeight() / screen.getHeight())
-        );
 
     }
 
