@@ -25,6 +25,11 @@ public class StatUtil {
     /**
      * Player methods
      */
+
+    /**
+     * Gets the player HP as a double value between 0 and 1
+     * @return player HP
+     */
     public double getPlayerHp() {
         double y = 0.8411458333333334;
         double bound = 0;
@@ -40,6 +45,10 @@ public class StatUtil {
         return 1 - ((barWidthRaw - bound) / barWidthRaw);
     }
 
+    /**
+     * Gets the player MP as a double value between 0 and 1
+     * @return player MP
+     */
     public double getPlayerMp() {
         double y = 0.87109375;
         double bound = 0;
@@ -55,6 +64,10 @@ public class StatUtil {
         return 1 - ((barWidthRaw - bound) / barWidthRaw);
     }
 
+    /**
+     * Gets the player SP as a double value between 0 and 1
+     * @return player SP
+     */
     public double getPlayerSp() {
         double y = 0.8958333333333334;
         double bound = 0;
@@ -70,6 +83,10 @@ public class StatUtil {
         return 1 - ((barWidthRaw - bound) / barWidthRaw);
     }
 
+    /**
+     * Gets the player XP as a double value between 0 and 1
+     * @return player XP
+     */
     public double getPlayerXp() {
         double y = 0.9244791666666666;
         double bound = 0;
@@ -87,6 +104,12 @@ public class StatUtil {
 
     /**
      * Enemy methods
+     */
+
+    /**
+     * Gets the name of the enemy using tesseract CLI
+     * @return enemy name as string
+     * @throws IOException if file can't be read
      */
     public String getEnemyName() throws IOException {
         // screen coords of enemy name in percentages
@@ -120,6 +143,10 @@ public class StatUtil {
         return name;
     }
 
+    /**
+     * Gets the enemy HP as a double value between 0 and 1
+     * @return enemy HP
+     */
     public double getEnemyHp() {
         double y = 0.84765625;
         double bound = 0;
@@ -136,6 +163,10 @@ public class StatUtil {
         return 1 - ((barWidthRaw - bound) / barWidthRaw);
     }
 
+    /**
+     * Gets the enemy MP as a double value between 0 and 1
+     * @return enemy MP
+     */
     public double getEnemyMp() {
         double y = 0.8802083333333334;
         double bound = 0;
@@ -152,6 +183,10 @@ public class StatUtil {
         return 1 - ((barWidthRaw - bound) / barWidthRaw);
     }
 
+    /**
+     * Gets the enemy SP as a double value between 0 and 1
+     * @return enemy SP
+     */
     public double getEnemySp() {
         double y = 0.9114583333333334;
         double bound = 0;
@@ -172,6 +207,12 @@ public class StatUtil {
      * Helper methods
      */
 
+    /**
+     * Takes a scrot of a specific area on screen
+     * Scrots player values
+     * @param y y point of the screen area
+     * @param target name of the output file
+     */
     private void scrotPlayer(double y, String target) {
         // static x value for status bar
         double playerBarX = 0.30307467057101023;
@@ -185,6 +226,12 @@ public class StatUtil {
         );
     }
 
+    /**
+     * Gets the amount of horizontal pixels until a black pixel is met
+     * Checks player values
+     * @param target name of image to check
+     * @return count of non-black pixels
+     */
     private int getPlayerBounds(String target) {
         int bound = 0;
         try {
@@ -207,6 +254,12 @@ public class StatUtil {
         return bound;
     }
 
+    /**
+     * Takes a scrot of a specific area on screen
+     * Scrots enemy values
+     * @param y y point of the screen area
+     * @param target name of the output file
+     */
     private void scrotEnemy(double y, String target) {
         // static x value for status bar
         double enemyBarX = 0.5878477306002928;
@@ -220,6 +273,12 @@ public class StatUtil {
         );
     }
 
+    /**
+     * Gets the amount of horizontal pixels until a black pixel is met
+     * Checks enemy values
+     * @param target name of image to check
+     * @return count of non-black pixels
+     */
     private int getEnemyBounds(String target) {
         int bound = 0;
         try {
@@ -243,6 +302,11 @@ public class StatUtil {
         return bound;
     }
 
+    /**
+     * Checks a hex color code against an array of black hexes
+     * @param hex hex color code
+     * @return true or false, determining if the pixel is black or not
+     */
     private boolean pixelIsBlack(String hex) {
         String[] gimmickyArrayWithHexColorCodes = {
                 "ff000000",
@@ -266,6 +330,14 @@ public class StatUtil {
         return false;
     }
 
+    /**
+     * Takes a scrot of a screen area and saves it in project root
+     * @param x x point of screen area
+     * @param y y point of screen area
+     * @param w width of screen area
+     * @param h height of screen area
+     * @param target name of file
+     */
     private void takeScrot(int x, int y, int w, int h, String target) {
         try {
             Robot rob = new Robot();
