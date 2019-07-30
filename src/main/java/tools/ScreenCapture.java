@@ -70,12 +70,12 @@ public class ScreenCapture {
         System.out.println("Rectangle of interest: \n" +
                 "x: " + captureRect.x + "\n" +
                 "y: " + captureRect.y + "\n" +
-                "x%: " + (double)(captureRect.getX() / screen.getWidth()) + "\n" +
-                "y%: " + (double)(captureRect.getY() / screen.getHeight()) + "\n" +
+                "px: " + (double)(captureRect.getX() / screen.getWidth()) + "\n" +
+                "py: " + (double)(captureRect.getY() / screen.getHeight()) + "\n\n" +
                 "w: " + captureRect.getWidth() + "\n" +
                 "h: " + captureRect.getHeight() + "\n" +
-                "w%: " + (double)(captureRect.getWidth() / screen.getWidth()) + "\n" +
-                "h%: " + (double)(captureRect.getHeight() / screen.getHeight())
+                "pw: " + (double)(captureRect.getWidth() / screen.getWidth()) + "\n" +
+                "ph: " + (double)(captureRect.getHeight() / screen.getHeight())
         );
 
     }
