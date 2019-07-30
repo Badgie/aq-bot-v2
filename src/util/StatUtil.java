@@ -12,15 +12,15 @@ import java.nio.file.Paths;
 
 public class StatUtil {
     // native screen dims
-    private double screenHeight = Toolkit.getDefaultToolkit().getScreenSize().height;
-    private double screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
+    private final double screenHeight = Toolkit.getDefaultToolkit().getScreenSize().height;
+    private final double screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
 
     // static height and width for checking status bar values
-    private double barWidth = 0.11127379209370425;
-    private double barHeight = 0.005208333333333333;
+    private final double barWidth = 0.11127379209370425;
+    private final double barHeight = 0.005208333333333333;
 
     // bar width is static
-    private double barWidthRaw = 152;
+    private final double barWidthRaw = 152;
 
     /**
      * Player methods
@@ -31,7 +31,7 @@ public class StatUtil {
      * @return player HP
      */
     public double getPlayerHp() {
-        double y = 0.8411458333333334;
+        final double y = 0.8411458333333334;
         double bound = 0;
         String target = "playerhp.png";
 
@@ -50,7 +50,7 @@ public class StatUtil {
      * @return player MP
      */
     public double getPlayerMp() {
-        double y = 0.87109375;
+        final double y = 0.87109375;
         double bound = 0;
         String target = "playermp.png";
 
@@ -69,7 +69,7 @@ public class StatUtil {
      * @return player SP
      */
     public double getPlayerSp() {
-        double y = 0.8958333333333334;
+        final double y = 0.8958333333333334;
         double bound = 0;
         String target = "playersp.png";
 
@@ -88,7 +88,7 @@ public class StatUtil {
      * @return player XP
      */
     public double getPlayerXp() {
-        double y = 0.9244791666666666;
+        final double y = 0.9244791666666666;
         double bound = 0;
         String target = "playerxp.png";
 
@@ -113,10 +113,10 @@ public class StatUtil {
      */
     public String getEnemyName() throws IOException {
         // screen coords of enemy name in percentages
-        double x = 0.5732064421669106;
-        double y = 0.8046875;
-        double w = 0.156661786;
-        double h = 0.026041667;
+        final double x = 0.5732064421669106;
+        final double y = 0.8046875;
+        final double w = 0.156661786;
+        final double h = 0.026041667;
         String name = "";
 
         // take screenshot of enemy name with coords relative to native resolution
@@ -148,7 +148,7 @@ public class StatUtil {
      * @return enemy HP
      */
     public double getEnemyHp() {
-        double y = 0.84765625;
+        final double y = 0.84765625;
         double bound = 0;
         String target = "enemyhp.png";
 
@@ -168,7 +168,7 @@ public class StatUtil {
      * @return enemy MP
      */
     public double getEnemyMp() {
-        double y = 0.8802083333333334;
+        final double y = 0.8802083333333334;
         double bound = 0;
         String target = "enemymp.png";
 
@@ -188,7 +188,7 @@ public class StatUtil {
      * @return enemy SP
      */
     public double getEnemySp() {
-        double y = 0.9114583333333334;
+        final double y = 0.9114583333333334;
         double bound = 0;
         String target = "enemysp.png";
 
@@ -215,7 +215,7 @@ public class StatUtil {
      */
     private void scrotPlayer(double y, String target) {
         // static x value for status bar
-        double playerBarX = 0.30307467057101023;
+        final double playerBarX = 0.30307467057101023;
 
         takeScrot(
                 (int)(screenWidth * playerBarX),
@@ -262,7 +262,7 @@ public class StatUtil {
      */
     private void scrotEnemy(double y, String target) {
         // static x value for status bar
-        double enemyBarX = 0.5878477306002928;
+        final double enemyBarX = 0.5878477306002928;
 
         takeScrot(
                 (int)(screenWidth * enemyBarX),
@@ -308,7 +308,7 @@ public class StatUtil {
      * @return true or false, determining if the pixel is black or not
      */
     private boolean pixelIsBlack(String hex) {
-        String[] gimmickyArrayWithHexColorCodes = {
+        final String[] gimmickyArrayWithHexColorCodes = {
                 "ff000000",
                 "ff010101",
                 "ff020202",
