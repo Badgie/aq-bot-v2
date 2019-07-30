@@ -1,0 +1,133 @@
+tibblesTheMerryElf {
+    name: Tibbles the Merry Elf
+    note: event specific, might not be necessary to implement
+    instructions {
+        6 clicks (random), then it asks for z-token donations - choose, then 1 more click (random)
+
+        donateZero {
+            x: 1016
+            y: 430
+            px: 0.7437774524158126
+            py: 0.5598958333333334
+
+            w: 76.0
+            h: 19.0
+            pw: 0.055636896046852125
+            ph: 0.024739583333333332
+        }
+    }
+}
+
+hybeeScout {
+    name: Hybee Scout
+    instructions {
+        2 click (button), track or leave
+        button {
+            x: 662
+            y: 376
+            px: 0.48462664714494874
+            py: 0.4895833333333333
+
+            w: 75.0
+            h: 18.0
+            pw: 0.05490483162518302
+            ph: 0.0234375
+        }
+
+        track {
+            x: 810
+            y: 261
+            px: 0.5929721815519766
+            py: 0.33984375
+
+            w: 251.0
+            h: 21.0
+            pw: 0.18374816983894582
+            ph: 0.02734375
+
+            nextBattle {
+                x: 453
+                y: 433
+                px: 0.33162518301610544
+                py: 0.5638020833333334
+
+                w: 144.0
+                h: 27.0
+                pw: 0.1054172767203514
+                ph: 0.03515625
+            }
+
+            leave {
+                x: 477
+                y: 489
+                px: 0.349194729136164
+                py: 0.63671875
+
+                w: 95.0
+                h: 14.0
+                pw: 0.06954612005856516
+                ph: 0.018229166666666668
+            }
+
+            heal {
+                x: 869
+                y: 251
+                px: 0.6361639824304539
+                py: 0.3268229166666667
+
+                w: 45.0
+                h: 43.0
+                pw: 0.03294289897510981
+                ph: 0.055989583333333336
+            }
+
+            stage1 {
+                5 battles, then return click (button)
+
+                button {
+                    x: 611
+                    y: 230
+                    px: 0.4472913616398243
+                    py: 0.2994791666666667
+
+                    w: 253.0
+                    h: 18.0
+                    pw: 0.18521229868228403
+                    ph: 0.0234375
+                }
+            }
+
+            stage2 {
+                4 battles, then return click (button)
+
+                button {
+                    x: 612
+                    y: 230
+                    px: 0.4480234260614934
+                    py: 0.2994791666666667
+
+                    w: 249.0
+                    h: 17.0
+                    pw: 0.1822840409956076
+                    ph: 0.022135416666666668
+                }
+            }
+
+            stage3 {
+                1 fight, presumably, tough.
+            }
+        }
+
+        leave {
+            x: 812
+            y: 313
+            px: 0.5944363103953147
+            py: 0.4075520833333333
+
+            w: 249.0
+            h: 21.0
+            pw: 0.1822840409956076
+            ph: 0.02734375
+        }
+    }
+}
