@@ -131,3 +131,32 @@ hybeeScout {
         }
     }
 }
+
+theSeeker {
+    name: The Seeker
+    note: asks if you are guardian
+
+    yesGuardian {
+        x: 939
+        y: 255
+        px: 0.6874084919472914
+        py: 0.33203125
+
+        w: 72.0
+        h: 22.0
+        pw: 0.0527086383601757
+        ph: 0.028645833333333332
+    }
+
+    noGuardian {
+        x: 1061
+        y: 255
+        px: 0.7767203513909224
+        py: 0.33203125
+
+        w: 71.0
+        h: 21.0
+        pw: 0.05197657393850659
+        ph: 0.02734375
+    }
+}
