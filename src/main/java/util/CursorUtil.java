@@ -201,6 +201,145 @@ public class CursorUtil {
         }
     }
 
+    public void shield(int shield) throws InterruptedException {
+        final int x = (int) (screenWidth * 0.44216691068814057);
+        final int y = (int) (screenHeight * 0.6067708333333334);
+        final int w = (int) (screenWidth * 0.11566617862371889);
+        final int h = (int) (screenHeight * 0.03515625);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+
+        //TODO: add delay
+
+        switch(shield) {
+            case -1:
+                noShield();
+                break;
+            case 0:
+                shield0();
+                break;
+            case 1:
+                shield1();
+                break;
+            case 2:
+                shield2();
+                break;
+            case 3:
+                shield3();
+                break;
+            case 4:
+                shield4();
+                break;
+            case 5:
+                shield5();
+                break;
+            case 6:
+                shield6();
+                break;
+            case 7:
+                shield7();
+                break;
+            default:
+
+                break;
+        }
+    }
+
+    /**
+     * Shield helper methods
+     */
+
+    private void noShield() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6171303074670571);
+        final int y = (int) (screenHeight * 0.4427083333333333);
+        final int w = (int) (screenWidth * 0.18301610541727673);
+        final int h = (int) (screenHeight * 0.024739583333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void shield0() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6178623718887262);
+        final int y = (int) (screenHeight * 0.4791666666666667);
+        final int w = (int) (screenWidth * 0.1815519765739385);
+        final int h = (int) (screenHeight * 0.0234375);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void shield1() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6171303074670571);
+        final int y = (int) (screenHeight * 0.51171875);
+        final int w = (int) (screenWidth * 0.18301610541727673);
+        final int h = (int) (screenHeight * 0.024739583333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void shield2() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6178623718887262);
+        final int y = (int) (screenHeight * 0.546875);
+        final int w = (int) (screenWidth * 0.1808199121522694);
+        final int h = (int) (screenHeight * 0.026041666666666668);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void shield3() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6171303074670571);
+        final int y = (int) (screenHeight * 0.5833333333333334);
+        final int w = (int) (screenWidth * 0.1822840409956076);
+        final int h = (int) (screenHeight * 0.0234375);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void shield4() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6178623718887262);
+        final int y = (int) (screenHeight * 0.6171875);
+        final int w = (int) (screenWidth * 0.1822840409956076);
+        final int h = (int) (screenHeight * 0.0234375);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void shield5() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6178623718887262);
+        final int y = (int) (screenHeight * 0.65234375);
+        final int w = (int) (screenWidth * 0.1822840409956076);
+        final int h = (int) (screenHeight * 0.024739583333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void shield6() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6185944363103953);
+        final int y = (int) (screenHeight * 0.6861979166666666);
+        final int w = (int) (screenWidth * 0.1800878477306003);
+        final int h = (int) (screenHeight * 0.024739583333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void shield7() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6222547584187409);
+        final int y = (int) (screenHeight * 0.72265625);
+        final int w = (int) (screenWidth * 0.17276720351390923);
+        final int h = (int) (screenHeight * 0.022135416666666668);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
     /**
      * Weapon helper methods
      */
