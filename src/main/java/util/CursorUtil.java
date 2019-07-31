@@ -43,6 +43,8 @@ public class CursorUtil {
         Point p = getRandomPoint(rect);
         moveAndClick(p.getX(), p.getY());
 
+        //TODO: add delay
+
         switch (ally) {
             case "artix":
                 artixAlly();
@@ -95,6 +97,18 @@ public class CursorUtil {
 
                 break;
         }
+    }
+
+    public void skill() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.44216691068814057);
+        final int y = (int) (screenHeight * 0.484375);
+        final int w = (int) (screenWidth * 0.116398243045388);
+        final int h = (int) (screenHeight * 0.03125);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+
+        //TODO: make framework for different armors with different skill sets
     }
 
     /**
