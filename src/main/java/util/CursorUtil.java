@@ -356,6 +356,65 @@ public class CursorUtil {
         acceptDefeatFlee();
     }
 
+    public void victory() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.46925329428989754);
+        final int y = (int) (screenHeight * 0.6927083333333334);
+        final int w = (int) (screenWidth * 0.06222547584187409);
+        final int h = (int) (screenHeight * 0.03515625);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+
+        //TODO: check for z-tokens
+        //TODO: log rewards
+    }
+
+    public void death() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.46925329428989754);
+        final int y = (int) (screenHeight * 0.5533854166666666);
+        final int w = (int) (screenWidth * 0.060029282576866766);
+        final int h = (int) (screenHeight * 0.036458333333333336);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+
+        Thread.sleep(5000); //TODO: fix delay
+
+        for (int i = 0; i < 3; i++) {
+            deathDialogue();
+        }
+    }
+
+    /**
+     * Death helper methods
+     */
+
+    private void deathDialogue() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.16617862371888725);
+        final int y = (int) (screenHeight * 0.52734375);
+        final int w = (int) (screenWidth * 0.19912152269399708);
+        final int h = (int) (screenHeight * 0.22265625);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    /**
+     * Victory helper methods
+     */
+
+    private void zTokens() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.4685212298682284);
+        final int y = (int) (screenHeight * 0.69140625);
+        final int w = (int) (screenWidth * 0.06076134699853587);
+        final int h = (int) (screenHeight * 0.037760416666666664);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+
+        //TODO: log rewards
+    }
+
     /**
      * Flee helper methods
      */
