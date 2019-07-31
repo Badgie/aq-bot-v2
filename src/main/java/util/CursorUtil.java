@@ -337,6 +337,49 @@ public class CursorUtil {
         }
     }
 
+    public void flee() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.4465592972181552);
+        final int y = (int) (screenHeight * 0.7317708333333334);
+        final int w = (int) (screenWidth * 0.1061493411420205);
+        final int h = (int) (screenHeight * 0.032552083333333336);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+
+        //TODO: check if enough SP
+        //TODO: add delay
+
+        confirmFlee();
+
+        //TODO: add delay
+
+        acceptDefeatFlee();
+    }
+
+    /**
+     * Flee helper methods
+     */
+
+    private void confirmFlee() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6346998535871157);
+        final int y = (int) (screenHeight * 0.71875);
+        final int w = (int) (screenWidth * 0.08199121522693997);
+        final int h = (int) (screenHeight * 0.0234375);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void acceptDefeatFlee() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.46925329428989754);
+        final int y = (int) (screenHeight * 0.5533854166666666);
+        final int w = (int) (screenWidth * 0.060029282576866766);
+        final int h = (int) (screenHeight * 0.037760416666666664);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
     /**
      * Pet helper methods
      */
