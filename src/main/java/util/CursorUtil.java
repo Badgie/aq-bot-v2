@@ -1,7 +1,7 @@
 package util;
 
 import com.github.joonasvali.naturalmouse.api.MouseMotionFactory;
-import org.w3c.dom.css.Rect;
+import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.awt.event.InputEvent;
@@ -1098,7 +1098,7 @@ public class CursorUtil {
      * @param rect rectangle to find a point within
      * @return random point object
      */
-    private Point getRandomPoint(Rectangle rect) {
+    private Point getRandomPoint(@NotNull Rectangle rect) {
         int minX = (int) rect.getX();
         int minY = (int) rect.getY();
         int maxX = (int) (rect.getX() + rect.getWidth());
