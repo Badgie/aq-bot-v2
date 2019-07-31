@@ -111,6 +111,158 @@ public class CursorUtil {
         //TODO: make framework for different armors with different skill sets
     }
 
+    public void item(int item) throws InterruptedException {
+        final int x = (int) (screenWidth * 0.44216691068814057);
+        final int y = (int) (screenHeight * 0.5234375);
+        final int w = (int) (screenWidth * 0.1171303074670571);
+        final int h = (int) (screenHeight * 0.03515625);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+
+        //TODO: add delay
+
+        switch (item) {
+            case -2:
+                healthPot();
+                break;
+            case -1:
+                manaPot();
+                break;
+            case 0:
+                item0();
+                break;
+            case 1:
+                item1();
+                break;
+            case 2:
+                item2();
+                break;
+            case 3:
+                item3();
+                break;
+            case 4:
+                item4();
+                break;
+            case 5:
+                item5();
+                break;
+            case 6:
+                item6();
+                break;
+            case 7:
+                item7();
+                break;
+            default:
+
+                break;
+        }
+    }
+
+    /**
+     * Item helper methods
+     */
+
+    private void healthPot() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6178623718887262);
+        final int y = (int) (screenHeight * 0.4153645833333333);
+        final int w = (int) (screenWidth * 0.03953147877013177);
+        final int h = (int) (screenHeight * 0.07421875);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void manaPot() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.664714494875549);
+        final int y = (int) (screenHeight * 0.4153645833333333);
+        final int w = (int) (screenWidth * 0.03806734992679356);
+        final int h = (int) (screenHeight * 0.07552083333333333);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void item0() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6156661786237189);
+        final int y = (int) (screenHeight * 0.5325520833333334);
+        final int w = (int) (screenWidth * 0.1822840409956076);
+        final int h = (int) (screenHeight * 0.020833333333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void item1() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6156661786237189);
+        final int y = (int) (screenHeight * 0.5638020833333334);
+        final int w = (int) (screenWidth * 0.1822840409956076);
+        final int h = (int) (screenHeight * 0.01953125);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void item2() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6156661786237189);
+        final int y = (int) (screenHeight * 0.5924479166666666);
+        final int w = (int) (screenWidth * 0.18301610541727673);
+        final int h = (int) (screenHeight * 0.022135416666666668);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void item3() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.616398243045388);
+        final int y = (int) (screenHeight * 0.6236979166666666);
+        final int w = (int) (screenWidth * 0.1822840409956076);
+        final int h = (int) (screenHeight * 0.020833333333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void item4() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.616398243045388);
+        final int y = (int) (screenHeight * 0.6536458333333334);
+        final int w = (int) (screenWidth * 0.1815519765739385);
+        final int h = (int) (screenHeight * 0.01953125);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void item5() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6156661786237189);
+        final int y = (int) (screenHeight * 0.6822916666666666);
+        final int w = (int) (screenWidth * 0.1822840409956076);
+        final int h = (int) (screenHeight * 0.020833333333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void item6() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.616398243045388);
+        final int y = (int) (screenHeight * 0.7135416666666666);
+        final int w = (int) (screenWidth * 0.1822840409956076);
+        final int h = (int) (screenHeight * 0.018229166666666668);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void item7() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6215226939970717);
+        final int y = (int) (screenHeight * 0.7434895833333334);
+        final int w = (int) (screenWidth * 0.17130307467057102);
+        final int h = (int) (screenHeight * 0.01953125);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
     /**
      * Spell helper methods
      */
