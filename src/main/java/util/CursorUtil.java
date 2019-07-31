@@ -246,6 +246,146 @@ public class CursorUtil {
         }
     }
 
+    public void armor(int armor) throws InterruptedException {
+        final int x = (int) (screenWidth * 0.44216691068814057);
+        final int y = (int) (screenHeight * 0.6497395833333334);
+        final int w = (int) (screenWidth * 0.116398243045388);
+        final int h = (int) (screenHeight * 0.029947916666666668);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+
+        //TODO: add delay
+        //TODO: layout is different with and without subrace, create case without
+
+        switch(armor) {
+            case -1:
+                race();
+                break;
+            case 0:
+                armor0();
+                break;
+            case 1:
+                armor1();
+                break;
+            case 2:
+                armor2();
+                break;
+            case 3:
+                armor3();
+                break;
+            case 4:
+                armor4();
+                break;
+            case 5:
+                armor5();
+                break;
+            case 6:
+                armor6();
+                break;
+            case 7:
+                armor7();
+                break;
+            default:
+
+                break;
+        }
+    }
+
+    /**
+     * Armor helper methods
+     */
+
+    private void race() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6178623718887262);
+        final int y = (int) (screenHeight * 0.42578125);
+        final int w = (int) (screenWidth * 0.1815519765739385);
+        final int h = (int) (screenHeight * 0.024739583333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void armor0() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6178623718887262);
+        final int y = (int) (screenHeight * 0.4609375);
+        final int w = (int) (screenWidth * 0.1815519765739385);
+        final int h = (int) (screenHeight * 0.022135416666666668);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void armor1() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6171303074670571);
+        final int y = (int) (screenHeight * 0.4947916666666667);
+        final int w = (int) (screenWidth * 0.1822840409956076);
+        final int h = (int) (screenHeight * 0.0234375);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void armor2() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6178623718887262);
+        final int y = (int) (screenHeight * 0.53125);
+        final int w = (int) (screenWidth * 0.1815519765739385);
+        final int h = (int) (screenHeight * 0.0234375);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void armor3() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6171303074670571);
+        final int y = (int) (screenHeight * 0.5651041666666666);
+        final int w = (int) (screenWidth * 0.1815519765739385);
+        final int h = (int) (screenHeight * 0.024739583333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void armor4() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6171303074670571);
+        final int y = (int) (screenHeight * 0.5989583333333334);
+        final int w = (int) (screenWidth * 0.18301610541727673);
+        final int h = (int) (screenHeight * 0.024739583333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void armor5() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6171303074670571);
+        final int y = (int) (screenHeight * 0.6341145833333334);
+        final int w = (int) (screenWidth * 0.18301610541727673);
+        final int h = (int) (screenHeight * 0.0234375);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void armor6() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6171303074670571);
+        final int y = (int) (screenHeight * 0.66796875);
+        final int w = (int) (screenWidth * 0.18301610541727673);
+        final int h = (int) (screenHeight * 0.02734375);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void armor7() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6215226939970717);
+        final int y = (int) (screenHeight * 0.7057291666666666);
+        final int w = (int) (screenWidth * 0.17349926793557832);
+        final int h = (int) (screenHeight * 0.022135416666666668);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
     /**
      * Shield helper methods
      */
