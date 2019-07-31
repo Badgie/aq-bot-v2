@@ -159,6 +159,132 @@ public class CursorUtil {
         }
     }
 
+    public void weapon(int weapon) throws InterruptedException {
+        final int x = (int) (screenWidth * 0.44216691068814057);
+        final int y = (int) (screenHeight * 0.5651041666666666);
+        final int w = (int) (screenWidth * 0.116398243045388);
+        final int h = (int) (screenHeight * 0.03515625);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+
+        //TODO: add delay
+
+        switch(weapon) {
+            case 0:
+                weapon0();
+                break;
+            case 1:
+                weapon1();
+                break;
+            case 2:
+                weapon2();
+                break;
+            case 3:
+                weapon3();
+                break;
+            case 4:
+                weapon4();
+                break;
+            case 5:
+                weapon5();
+                break;
+            case 6:
+                weapon6();
+                break;
+            case 7:
+                weapon7();
+                break;
+            default:
+
+                break;
+        }
+    }
+
+    /**
+     * Weapon helper methods
+     */
+
+    private void weapon0() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6171303074670571);
+        final int y = (int) (screenHeight * 0.4609375);
+        final int w = (int) (screenWidth * 0.18301610541727673);
+        final int h = (int) (screenHeight * 0.02734375);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void weapon1() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6178623718887262);
+        final int y = (int) (screenHeight * 0.4973958333333333);
+        final int w = (int) (screenWidth * 0.1815519765739385);
+        final int h = (int) (screenHeight * 0.026041666666666668);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void weapon2() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6171303074670571);
+        final int y = (int) (screenHeight * 0.5338541666666666);
+        final int w = (int) (screenWidth * 0.1822840409956076);
+        final int h = (int) (screenHeight * 0.0234375);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void weapon3() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6178623718887262);
+        final int y = (int) (screenHeight * 0.5677083333333334);
+        final int w = (int) (screenWidth * 0.1822840409956076);
+        final int h = (int) (screenHeight * 0.024739583333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void weapon4() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6178623718887262);
+        final int y = (int) (screenHeight * 0.6028645833333334);
+        final int w = (int) (screenWidth * 0.1822840409956076);
+        final int h = (int) (screenHeight * 0.0234375);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void weapon5() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6171303074670571);
+        final int y = (int) (screenHeight * 0.63671875);
+        final int w = (int) (screenWidth * 0.18301610541727673);
+        final int h = (int) (screenHeight * 0.024739583333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void weapon6() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6178623718887262);
+        final int y = (int) (screenHeight * 0.671875);
+        final int w = (int) (screenWidth * 0.1815519765739385);
+        final int h = (int) (screenHeight * 0.0234375);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void weapon7() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6207906295754027);
+        final int y = (int) (screenHeight * 0.70703125);
+        final int w = (int) (screenWidth * 0.17349926793557832);
+        final int h = (int) (screenHeight * 0.022135416666666668);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
     /**
      * Item helper methods
      */
