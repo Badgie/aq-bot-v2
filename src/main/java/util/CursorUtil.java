@@ -65,6 +65,122 @@ public class CursorUtil {
         }
     }
 
+    public void spell(int spell) throws InterruptedException {
+        switch (spell) {
+            case 0:
+                quickCastSpell0();
+                break;
+            case 1:
+                quickCastSpell1();
+                break;
+            case 2:
+                quickCastSpell2();
+                break;
+            case 3:
+                quickCastSpell3();
+                break;
+            case 4:
+                quickCastSpell4();
+                break;
+            case 5:
+                quickCastSpell5();
+                break;
+            case 6:
+                quickCastSpell6();
+                break;
+            case 7:
+                quickCastSpell7();
+                break;
+            default:
+
+                break;
+        }
+    }
+
+    /**
+     * Spell helper methods
+     */
+
+    private void quickCastSpell0() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.44216691068814057);
+        final int y = (int) (screenHeight * 0.4518229166666667);
+        final int w = (int) (screenWidth * 0.010248901903367497);
+        final int h = (int) (screenHeight * 0.024739583333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void quickCastSpell1() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.4568081991215227);
+        final int y = (int) (screenHeight * 0.4518229166666667);
+        final int w = (int) (screenWidth * 0.010248901903367497);
+        final int h = (int) (screenHeight * 0.024739583333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void quickCastSpell2() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.47291361639824303);
+        final int y = (int) (screenHeight * 0.4518229166666667);
+        final int w = (int) (screenWidth * 0.00951683748169839);
+        final int h = (int) (screenHeight * 0.024739583333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void quickCastSpell3() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.4868228404099561);
+        final int y = (int) (screenHeight * 0.4518229166666667);
+        final int w = (int) (screenWidth * 0.010248901903367497);
+        final int h = (int) (screenHeight * 0.024739583333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void quickCastSpell4() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.5021961932650073);
+        final int y = (int) (screenHeight * 0.4518229166666667);
+        final int w = (int) (screenWidth * 0.010248901903367497);
+        final int h = (int) (screenHeight * 0.024739583333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void quickCastSpell5() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.5175695461200586);
+        final int y = (int) (screenHeight * 0.4518229166666667);
+        final int w = (int) (screenWidth * 0.010248901903367497);
+        final int h = (int) (screenHeight * 0.024739583333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void quickCastSpell6() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.5314787701317716);
+        final int y = (int) (screenHeight * 0.4518229166666667);
+        final int w = (int) (screenWidth * 0.012445095168374817);
+        final int h = (int) (screenHeight * 0.024739583333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void quickCastSpell7() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.5475841874084919);
+        final int y = (int) (screenHeight * 0.453125);
+        final int w = (int) (screenWidth * 0.010980966325036604);
+        final int h = (int) (screenHeight * 0.0234375);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
 
     /**
      * Ally assist helper methods
