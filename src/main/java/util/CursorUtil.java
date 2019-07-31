@@ -292,6 +292,145 @@ public class CursorUtil {
         }
     }
 
+    public void pet(int pet) throws InterruptedException {
+        final int x = (int) (screenWidth * 0.44216691068814057);
+        final int y = (int) (screenHeight * 0.6875);
+        final int w = (int) (screenWidth * 0.11566617862371889);
+        final int h = (int) (screenHeight * 0.033854166666666664);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+
+        //TODO: add delay
+
+        switch(pet) {
+            case -1:
+                hide();
+                break;
+            case 0:
+                pet0();
+                break;
+            case 1:
+                pet1();
+                break;
+            case 2:
+                pet2();
+                break;
+            case 3:
+                pet3();
+                break;
+            case 4:
+                pet4();
+                break;
+            case 5:
+                pet5();
+                break;
+            case 6:
+                pet6();
+                break;
+            case 7:
+                pet7();
+                break;
+            default:
+
+                break;
+        }
+    }
+
+    /**
+     * Pet helper methods
+     */
+
+    private void hide() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6178623718887262);
+        final int y = (int) (screenHeight * 0.4453125);
+        final int w = (int) (screenWidth * 0.1808199121522694);
+        final int h = (int) (screenHeight * 0.020833333333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void pet0() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6171303074670571);
+        final int y = (int) (screenHeight * 0.5065104166666666);
+        final int w = (int) (screenWidth * 0.18301610541727673);
+        final int h = (int) (screenHeight * 0.022135416666666668);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void pet1() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6171303074670571);
+        final int y = (int) (screenHeight * 0.5364583333333334);
+        final int w = (int) (screenWidth * 0.18301610541727673);
+        final int h = (int) (screenHeight * 0.0234375);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void pet2() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6178623718887262);
+        final int y = (int) (screenHeight * 0.5690104166666666);
+        final int w = (int) (screenWidth * 0.1815519765739385);
+        final int h = (int) (screenHeight * 0.020833333333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void pet3() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6171303074670571);
+        final int y = (int) (screenHeight * 0.6015625);
+        final int w = (int) (screenWidth * 0.1822840409956076);
+        final int h = (int) (screenHeight * 0.01953125);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void pet4() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6178623718887262);
+        final int y = (int) (screenHeight * 0.6328125);
+        final int w = (int) (screenWidth * 0.1822840409956076);
+        final int h = (int) (screenHeight * 0.020833333333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void pet5() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6178623718887262);
+        final int y = (int) (screenHeight * 0.6640625);
+        final int w = (int) (screenWidth * 0.1815519765739385);
+        final int h = (int) (screenHeight * 0.01953125);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void pet6() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6178623718887262);
+        final int y = (int) (screenHeight * 0.6940104166666666);
+        final int w = (int) (screenWidth * 0.17935578330893118);
+        final int h = (int) (screenHeight * 0.01953125);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
+    private void pet7() throws InterruptedException {
+        final int x = (int) (screenWidth * 0.6222547584187409);
+        final int y = (int) (screenHeight * 0.72265625);
+        final int w = (int) (screenWidth * 0.17130307467057102);
+        final int h = (int) (screenHeight * 0.020833333333333332);
+        final Rectangle rect = new Rectangle(x, y, w, h);
+        Point p = getRandomPoint(rect);
+        moveAndClick(p.getX(), p.getY());
+    }
+
     /**
      * Armor helper methods
      */
