@@ -6,13 +6,23 @@ import java.util.List;
 
 public class Armor {
     private int pos;
+    private String name;
     private List<Skill> skills;
     private List<Affinity> affinities;
 
-    public Armor(int pos, List<Skill> skills, List<Affinity> affinities) {
+    public Armor(int pos, String name, List<Skill> skills, List<Affinity> affinities) {
         this.pos = pos;
+        this.name = name;
         this.skills = skills;
         this.affinities = affinities;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getPos() {
