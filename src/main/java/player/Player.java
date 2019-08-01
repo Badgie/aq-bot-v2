@@ -22,7 +22,6 @@ public class Player {
     private Pet pet;
 
     private List<Spell> spells;
-    private List<Skill> skills;
     private List<Item> items;
     private List<Weapon> weapons;
     private List<Shield> shields;
@@ -49,7 +48,6 @@ public class Player {
         private Pet pet;
 
         private List<Spell> spells;
-        private List<Skill> skills;
         private List<Item> items;
         private List<Weapon> weapons;
         private List<Shield> shields;
@@ -119,11 +117,6 @@ public class Player {
             return this;
         }
 
-        public PlayerBuilder skills(List<Skill> skills) {
-            this.skills = skills;
-            return this;
-        }
-
         public PlayerBuilder items(List<Item> items) {
             this.items = items;
             return this;
@@ -172,7 +165,6 @@ public class Player {
         this.shield = pb.shield;
         this.pet = pb.pet;
         this.spells = pb.spells;
-        this.skills = pb.skills;
         this.items = pb.items;
         this.weapons = pb.weapons;
         this.shields = pb.shields;
@@ -242,10 +234,6 @@ public class Player {
 
     public List<Spell> getSpells() {
         return spells;
-    }
-
-    public List<Skill> getSkills() {
-        return skills;
     }
 
     public List<Item> getItems() {
@@ -330,10 +318,6 @@ public class Player {
 
     public void setSpells(List<Spell> spells) {
         this.spells = spells;
-    }
-
-    public void setSkills(List<Skill> skills) {
-        this.skills = skills;
     }
 
     public void setItems(List<Item> items) {
