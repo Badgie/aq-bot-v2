@@ -1,24 +1,52 @@
 package common;
 
 public class Affinity {
-    private String type;
     private int percentage;
+    private Affinity affinity;
 
-    public Affinity(String type) {
-        this.type = type;
+    public class FireAffinity {
+
+        public FireAffinity() {}
     }
 
-    public Affinity(String type, int percentage) {
-        this.type = type;
+    public class WaterAffinity {
+
+        public WaterAffinity() {}
+    }
+
+    public class WindAffinity {
+
+        public WindAffinity() {}
+    }
+
+    public class IceAffinity {
+
+        public IceAffinity() {}
+    }
+
+    public class EarthAffinity {
+
+        public EarthAffinity() {}
+    }
+
+    public class EnergyAffinity {
+
+        public EnergyAffinity() {}
+    }
+
+    public class LightAffinity {
+
+        public LightAffinity() {}
+    }
+
+    public class DarknessAffinity {
+
+        public DarknessAffinity() {}
+    }
+
+    public Affinity(int percentage, Affinity affinity) {
         this.percentage = percentage;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+        this.affinity = affinity;
     }
 
     public int getPercentage() {
@@ -27,5 +55,13 @@ public class Affinity {
 
     public void setPercentage(int percentage) {
         this.percentage = percentage;
+    }
+
+    public Affinity getAffinity() {
+        return affinity;
+    }
+
+    public void setAffinity(Affinity affinity) {
+        this.affinity = affinity;
     }
 }
