@@ -2,6 +2,9 @@ package log;
 
 import util.Util;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Log {
+    private PropertyChangeSupport change = new PropertyChangeSupport(this);
     private Date start;
     private Date end;
     private int xp;
@@ -28,6 +32,14 @@ public class Log {
         this.ztoken = 0;
         this.enemies = new ArrayList<>();
         this.deaths = 0;
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener l) {
+        change.addPropertyChangeListener(l);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener l) {
+        change.removePropertyChangeListener(l);
     }
 
     public int getDeaths() {
@@ -59,23 +71,33 @@ public class Log {
     }
 
     public void addXp(int xp) {
+        int old = this.xp;
         this.xp += xp;
+        change.firePropertyChange("xp", old, this.xp);
     }
 
     public void addGold(int gold) {
+        int old = this.gold;
         this.gold += gold;
+        change.firePropertyChange("gold", old, this.gold);
     }
 
     public void addZtoken(int ztoken) {
+        int old = this.ztoken;
         this.ztoken += ztoken;
+        change.firePropertyChange("ztoken", old, this.ztoken);
     }
 
     public void addEnemy(String name) {
+        int old = this.enemies.size();
         this.enemies.add(name);
+        change.firePropertyChange("enemies", old, this.enemies.size());
     }
 
     public void addDeath() {
+        int old = this.deaths;
         this.deaths++;
+        change.firePropertyChange("deaths", old, this.deaths);
     }
 
     public void setEnd() {
@@ -84,7 +106,7 @@ public class Log {
 
     public LocalTime getDuration() {
         long diff = end.getTime() - start.getTime();
-        return LocalTime.ofNanoOfDay(diff);
+        return LocalTime.ofSecondOfDay(diff / 1000);
     }
 
     public void writeToFile() {
