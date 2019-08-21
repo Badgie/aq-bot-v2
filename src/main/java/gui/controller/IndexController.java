@@ -6,12 +6,15 @@ import bot.event.CivilWar3Bot;
 import common.RectDimension;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -24,6 +27,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
@@ -44,6 +48,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.concurrent.CountDownLatch;
 
 public class IndexController implements Initializable {
     public ComboBox<String> PROFILE_BOX;
@@ -158,24 +163,35 @@ public class IndexController implements Initializable {
                             )
                     );
                     Util.setBot(bot);
-                    Thread t = new Thread(() -> {
-                        try {
-                            bot.bot();
-                        } catch (AWTException | InterruptedException | IOException e) {
-                            e.printStackTrace();
+                    Service<Void> service = new Service<Void>() {
+                        @Override
+                        protected Task<Void> createTask() {
+                            return new Task<Void>() {
+                                @Override
+                                protected Void call() throws Exception {
+                                    bot.bot();
+                                    final CountDownLatch latch = new CountDownLatch(1);
+                                    Platform.runLater(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            try {
+                                                primaryStage.show();
+                                                Util.getLiveStatsStage().close();
+                                                setPostBotStats(bot.getLog());
+                                            } finally {
+                                                latch.countDown();
+                                            }
+                                        }
+                                    });
+                                    latch.await();
+                                    return null;
+                                }
+                            };
                         }
-                    });
-                    t.start();
-                    Util.setBotThread(t);
-
+                    };
+                    service.start();
                     launchLiveStats();
                     primaryStage.hide();
-
-                    while (t.isAlive()) {}
-
-                    primaryStage.show();
-                    Util.getLiveStatsStage().close();
-                    setPostBotStats(bot.getLog());
                 } catch (IOException | AWTException e) {
                     e.printStackTrace();
                 }
@@ -295,16 +311,28 @@ public class IndexController implements Initializable {
     }
 
     private void setPostBotStats(Log log) {
+        String logs = "";
+        String os = System.getProperty("os.name");
+
+        if (os.equals("Linux")) logs = "/logs/";
+        else if (os.contains("Windows")) logs = "\\logs\\";
+
         VBox vbox = new VBox();
-        Text header = new Text("Bot finished.");
+
+        vbox.setAlignment(Pos.TOP_CENTER);
+        vbox.setSpacing(5);
+
+        Text header = new Text("Bot finished");
+        header.setUnderline(true);
         Text xp = new Text("XP: " + log.getXp());
         Text gold = new Text("Gold: " + log.getGold());
-        Text ztokens = new Text("Z-Tokens:" + log.getZtoken());
+        Text ztokens = new Text("Z-Tokens: " + log.getZtoken());
         Text deaths = new Text("Deaths: " + log.getDeaths());
         Text enemies = new Text("Enemies killed: " + (log.getEnemies().size() - log.getDeaths()));
         Text duration = new Text("Duration: " + log.getDuration());
-        Text logLoc = new Text("These statistics can be found in " +
-                Util.getUsrDir() + "/logs/");
+        Text logLoc = new Text("Logs can be found in\n" +
+                Util.getUsrDir() + logs);
+        logLoc.setTextAlignment(TextAlignment.CENTER);
 
         vbox.getChildren().setAll(
                 header,
@@ -316,6 +344,8 @@ public class IndexController implements Initializable {
                 duration,
                 logLoc
         );
+
+        EXTRAS_HBOX.getChildren().setAll(vbox);
     }
 
     private void launchLiveStats() throws IOException, AWTException {
