@@ -14,8 +14,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -42,6 +42,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class IndexController implements Initializable {
@@ -51,6 +52,7 @@ public class IndexController implements Initializable {
     public Button NEW_PROFILE_BUTTON;
     public Button START_BUTTON;
     public Button SETTINGS_BUTTON;
+    public Button DELETE_BUTTON;
     public HBox EXTRAS_HBOX;
     public TextField ROUND_FIELD;
     public static boolean IS_NEW_PROFILE;
@@ -87,15 +89,57 @@ public class IndexController implements Initializable {
         EDIT_PROFILE_BUTTON.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                IS_NEW_PROFILE = false;
-                PROFILE_NAME = PROFILE_BOX.getSelectionModel().getSelectedItem();
-                try {
-                    launchProfileConfig();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (PROFILE_BOX.getSelectionModel().getSelectedItem() == null) {
+                    profileSelectionError();
+                } else {
+                    IS_NEW_PROFILE = false;
+                    PROFILE_NAME = PROFILE_BOX.getSelectionModel().getSelectedItem();
+                    try {
+                        launchProfileConfig();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
+    }
+
+    private void deleteProfileButton() {
+        DELETE_BUTTON.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (PROFILE_BOX.getSelectionModel().getSelectedItem() == null) {
+                    profileSelectionError();
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setContentText("You are about to delete profile \"" +
+                            PROFILE_BOX.getSelectionModel().getSelectedItem() +
+                            "\". This action is irreversible. Are you sure?");
+                    ButtonType yes = new ButtonType("Yes");
+                    ButtonType no = new ButtonType("No");
+
+                    alert.getButtonTypes().setAll(yes, no);
+
+                    Optional<ButtonType> result = alert.showAndWait();
+
+                    if (result.isPresent() && result.get().equals(yes)) {
+                        String profileFile = PROFILE_BOX.getSelectionModel().getSelectedItem()
+                                .toLowerCase().replace(" ", "-");
+                        try {
+                            Files.delete(Paths.get(Util.getUsrDir() + "/profile/" + profileFile));
+                            updateProfileBox();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    private void profileSelectionError() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setContentText("Please choose a profile.");
     }
 
     private void startBotButton() {
@@ -139,7 +183,6 @@ public class IndexController implements Initializable {
     }
 
     private void settingsButton() throws IOException {
-        SETTINGS_BUTTON.setText("Settings");
         SETTINGS_BUTTON.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
