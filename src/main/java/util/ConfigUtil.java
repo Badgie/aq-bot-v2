@@ -48,6 +48,8 @@ public class ConfigUtil {
                 if (!gameScreen.exists()) {
                     createGameScreenConfig();
                 }
+            } else {
+                System.exit(0);
             }
         }
     }
