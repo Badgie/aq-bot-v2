@@ -56,7 +56,7 @@
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin></Button>
-                  <Button mnemonicParsing="false" text="Delete" />
+                  <Button fx:id="DELETE_BUTTON" mnemonicParsing="false" text="Delete" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="2.0" layoutY="52.0" prefHeight="50.0" prefWidth="596.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
