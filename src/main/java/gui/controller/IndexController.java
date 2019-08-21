@@ -21,9 +21,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
+import log.Log;
 import player.Player;
 import tools.ScreenCapture;
 import util.*;
@@ -47,7 +51,7 @@ public class IndexController implements Initializable {
     public Button NEW_PROFILE_BUTTON;
     public Button START_BUTTON;
     public Button SETTINGS_BUTTON;
-    public Button SCREEN_CAP_BUTTON;
+    public HBox EXTRAS_HBOX;
     public TextField ROUND_FIELD;
     public static boolean IS_NEW_PROFILE;
     public static String PROFILE_NAME;
@@ -59,9 +63,8 @@ public class IndexController implements Initializable {
         startBotButton();
         try {
             settingsButton();
-            screenCapButton();
             setChoiceBoxes();
-        } catch (IOException | AWTException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -127,6 +130,7 @@ public class IndexController implements Initializable {
 
                     primaryStage.show();
                     Util.getLiveStatsStage().close();
+                    setPostBotStats(bot.getLog());
                 } catch (IOException | AWTException e) {
                     e.printStackTrace();
                 }
@@ -144,7 +148,7 @@ public class IndexController implements Initializable {
         });
     }
 
-    private void screenCapButton() throws AWTException, IOException {
+    /*private void screenCapButton() throws AWTException, IOException {
         SCREEN_CAP_BUTTON.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -172,11 +176,11 @@ public class IndexController implements Initializable {
 
                     screen = robot.createScreenCapture(gameScreen);
 
-                    /*SwingUtilities.invokeLater(new Runnable() {
+                    SwingUtilities.invokeLater(new Runnable() {
                         public void run() {
                             new ScreenCapture(screen, rectDims);
                         }
-                    });*/
+                    });
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
@@ -188,7 +192,7 @@ public class IndexController implements Initializable {
                 }
             }
         });
-    }
+    }*/
 
     private void setChoiceBoxes() {
         GUIUtil gui = new GUIUtil();
@@ -244,6 +248,30 @@ public class IndexController implements Initializable {
             formattedNames.add(result.toString());
         }
         return formattedNames;
+    }
+
+    private void setPostBotStats(Log log) {
+        VBox vbox = new VBox();
+        Text header = new Text("Bot finished.");
+        Text xp = new Text("XP: " + log.getXp());
+        Text gold = new Text("Gold: " + log.getGold());
+        Text ztokens = new Text("Z-Tokens:" + log.getZtoken());
+        Text deaths = new Text("Deaths: " + log.getDeaths());
+        Text enemies = new Text("Enemies killed: " + (log.getEnemies().size() - log.getDeaths()));
+        Text duration = new Text("Duration: " + log.getDuration());
+        Text logLoc = new Text("These statistics can be found in " +
+                Util.getUsrDir() + "/logs/");
+
+        vbox.getChildren().setAll(
+                header,
+                xp,
+                gold,
+                ztokens,
+                deaths,
+                enemies,
+                duration,
+                logLoc
+        );
     }
 
     private void launchLiveStats() throws IOException, AWTException {
