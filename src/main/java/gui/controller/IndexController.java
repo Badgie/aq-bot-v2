@@ -63,6 +63,7 @@ public class IndexController implements Initializable {
         newProfileButton();
         editProfileButton();
         startBotButton();
+        deleteProfileButton();
         try {
             settingsButton();
             setChoiceBoxes();
