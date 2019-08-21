@@ -26,8 +26,7 @@ public class StatUtil {
      */
     public double getPlayerHp() throws IOException, AWTException {
         JSONObject hp = util.getDimsAsJSONObject("combat/statusbar/player/hp");
-        double playerHp = getPlayerPercentage(hp) * 100;
-        return playerHp;
+        return getPlayerPercentage(hp) * 100;
     }
 
     /**
@@ -45,8 +44,7 @@ public class StatUtil {
      */
     public double getPlayerSp() throws IOException, AWTException {
         JSONObject sp = util.getDimsAsJSONObject("combat/statusbar/player/sp");
-        double playerSp = getPlayerPercentage(sp) * 100;
-        return playerSp;
+        return getPlayerPercentage(sp) * 100;
     }
 
     /**
