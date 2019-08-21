@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="476.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ConfigProfileController">
+   <children>
+      <ScrollPane fx:id="SCROLL_PANE" layoutY="40.0" prefHeight="378.0" prefWidth="476.0" vvalue="0.2" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+        <content>
+          <AnchorPane prefHeight="2070.0" prefWidth="456.0">
+               <children>
+                  <HBox alignment="CENTER" layoutY="105.0" prefHeight="60.0" prefWidth="456.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="105.0">
+                     <children>
+                        <VBox prefHeight="51.0" prefWidth="170.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Health pot threshold" />
+                              <TextField fx:id="HEALTH_POT_THRESHOLD" text="0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets right="50.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="170.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mana pot threshold" />
+                              <TextField fx:id="MANA_POT_THRESHOLD" text="0" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutY="37.0" prefHeight="68.0" prefWidth="456.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="150.0">
+                           <children>
+                              <CheckBox fx:id="DYNAMIC_WEAPONS" mnemonicParsing="false" text="Dynamic weapons">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="USE_ALLY_ASSIST" mnemonicParsing="false" text="Use ally assist" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets right="50.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefHeight="68.0" prefWidth="150.0">
+                           <children>
+                              <CheckBox fx:id="DYNAMIC_PETS" mnemonicParsing="false" text="Dynamic pets">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox fx:id="USE_SPELLS" mnemonicParsing="false" text="Use spells" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="1.0" layoutY="7.0" prefHeight="37.0" prefWidth="456.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bot">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="29.0" layoutY="165.0" prefHeight="37.0" prefWidth="398.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="165.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Character">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutY="202.0" prefHeight="165.0" prefWidth="456.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="202.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="150.0">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <children>
+                              <CheckBox fx:id="IS_GUARDIAN" mnemonicParsing="false" text="Guardian">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Weapon" />
+                              <ChoiceBox fx:id="WEAPON" prefHeight="26.0" prefWidth="80.0">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </ChoiceBox>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Item" />
+                              <ChoiceBox fx:id="ITEM" prefHeight="26.0" prefWidth="80.0" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="150.0">
+                           <children>
+                              <CheckBox fx:id="HAS_SUBRACE" mnemonicParsing="false" text="Subrace">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Armor" />
+                              <ChoiceBox fx:id="ARMOR" prefHeight="26.0" prefWidth="80.0">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </ChoiceBox>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pet" />
+                              <ChoiceBox fx:id="PET" prefHeight="26.0" prefWidth="80.0" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Shield" />
+                              <ChoiceBox fx:id="SHIELD" prefHeight="26.0" prefWidth="80.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="24.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="22.0" layoutY="367.0" prefHeight="37.0" prefWidth="398.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="367.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Spells">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="-2.0" layoutY="404.0" prefHeight="208.0" prefWidth="460.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="404.0">
+                     <children>
+                        <VBox prefHeight="208.0" prefWidth="296.0" spacing="5.0">
+                           <children>
+                              <TextField fx:id="SPELL_ZERO_NAME" prefHeight="26.0" prefWidth="248.0" promptText="Name" />
+                              <TextField fx:id="SPELL_ONE_NAME" prefHeight="26.0" prefWidth="248.0" promptText="Name" />
+                              <TextField fx:id="SPELL_TWO_NAME" prefHeight="26.0" prefWidth="248.0" promptText="Name" />
+                              <TextField fx:id="SPELL_THREE_NAME" prefHeight="26.0" prefWidth="248.0" promptText="Name" />
+                              <TextField fx:id="SPELL_FOUR_NAME" prefHeight="26.0" prefWidth="248.0" promptText="Name" />
+                              <TextField fx:id="SPELL_FIVE_NAME" prefHeight="26.0" prefWidth="248.0" promptText="Name" />
+                              <TextField fx:id="SPELL_SIX_NAME" prefHeight="26.0" prefWidth="248.0" promptText="Name" />
+                              <TextField fx:id="SPELL_SEVEN_NAME" prefHeight="26.0" prefWidth="248.0" promptText="Name" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                           <children>
+                              <ChoiceBox fx:id="SPELL_ZERO_TYPE" prefWidth="150.0" />
+                              <ChoiceBox fx:id="SPELL_ONE_TYPE" prefWidth="150.0" />
+                              <ChoiceBox fx:id="SPELL_TWO_TYPE" prefWidth="150.0" />
+                              <ChoiceBox fx:id="SPELL_THREE_TYPE" prefWidth="150.0" />
+                              <ChoiceBox fx:id="SPELL_FOUR_TYPE" prefWidth="150.0" />
+                              <ChoiceBox fx:id="SPELL_FIVE_TYPE" prefWidth="150.0" />
+                              <ChoiceBox fx:id="SPELL_SIX_TYPE" prefWidth="150.0" />
+                              <ChoiceBox fx:id="SPELL_SEVEN_TYPE" prefWidth="150.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets left="25.0" right="25.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="29.0" layoutY="647.0" prefHeight="37.0" prefWidth="398.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="647.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Items">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <VBox alignment="CENTER" layoutY="684.0" prefHeight="208.0" prefWidth="455.0" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="684.0">
+                     <children>
+                        <TextField fx:id="ITEM_ZERO_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="ITEM_ONE_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="ITEM_TWO_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="ITEM_THREE_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="ITEM_FOUR_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="ITEM_FIVE_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="ITEM_SIX_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="ITEM_SEVEN_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                     </children>
+                     <padding>
+                        <Insets left="25.0" right="25.0" />
+                     </padding>
+                  </VBox>
+                  <HBox alignment="CENTER" layoutX="29.0" layoutY="927.0" prefHeight="37.0" prefWidth="398.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="927.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Weapons">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="22.0" layoutY="964.0" prefHeight="100.0" prefWidth="413.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="964.0">
+                     <children>
+                        <VBox prefHeight="208.0" prefWidth="187.0" spacing="5.0">
+                           <children>
+                              <TextField fx:id="WEAP_ZERO_NAME" prefHeight="26.0" prefWidth="185.0" promptText="Name" />
+                              <TextField fx:id="WEAP_ONE_NAME" prefHeight="26.0" prefWidth="185.0" promptText="Name" />
+                              <TextField fx:id="WEAP_TWO_NAME" prefHeight="26.0" prefWidth="185.0" promptText="Name" />
+                              <TextField fx:id="WEAP_THREE_NAME" prefHeight="26.0" prefWidth="185.0" promptText="Name" />
+                              <TextField fx:id="WEAP_FOUR_NAME" prefHeight="26.0" prefWidth="185.0" promptText="Name" />
+                              <TextField fx:id="WEAP_FIVE_NAME" prefHeight="26.0" prefWidth="185.0" promptText="Name" />
+                              <TextField fx:id="WEAP_SIX_NAME" prefHeight="26.0" prefWidth="185.0" promptText="Name" />
+                              <TextField fx:id="WEAP_SEVEN_NAME" prefHeight="26.0" prefWidth="185.0" promptText="Name" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                           <children>
+                              <ChoiceBox fx:id="WEAP_ZERO_TYPE1" prefHeight="26.0" prefWidth="101.0" />
+                              <ChoiceBox fx:id="WEAP_ONE_TYPE1" prefHeight="26.0" prefWidth="101.0" />
+                              <ChoiceBox fx:id="WEAP_TWO_TYPE1" prefHeight="26.0" prefWidth="101.0" />
+                              <ChoiceBox fx:id="WEAP_THREE_TYPE1" prefHeight="26.0" prefWidth="101.0" />
+                              <ChoiceBox fx:id="WEAP_FOUR_TYPE1" prefHeight="26.0" prefWidth="101.0" />
+                              <ChoiceBox fx:id="WEAP_FIVE_TYPE1" prefHeight="26.0" prefWidth="101.0" />
+                              <ChoiceBox fx:id="WEAP_SIX_TYPE1" prefHeight="26.0" prefWidth="101.0" />
+                              <ChoiceBox fx:id="WEAP_SEVEN_TYPE1" prefHeight="26.0" prefWidth="101.0" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                           <children>
+                              <ChoiceBox fx:id="WEAP_ZERO_TYPE2" prefHeight="26.0" prefWidth="101.0" />
+                              <ChoiceBox fx:id="WEAP_ONE_TYPE2" prefHeight="26.0" prefWidth="101.0" />
+                              <ChoiceBox fx:id="WEAP_TWO_TYPE2" prefHeight="26.0" prefWidth="101.0" />
+                              <ChoiceBox fx:id="WEAP_THREE_TYPE2" prefHeight="26.0" prefWidth="101.0" />
+                              <ChoiceBox fx:id="WEAP_FOUR_TYPE2" prefHeight="26.0" prefWidth="101.0" />
+                              <ChoiceBox fx:id="WEAP_FIVE_TYPE2" prefHeight="26.0" prefWidth="101.0" />
+                              <ChoiceBox fx:id="WEAP_SIX_TYPE2" prefHeight="26.0" prefWidth="101.0" />
+                              <ChoiceBox fx:id="WEAP_SEVEN_TYPE2" prefHeight="26.0" prefWidth="101.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets left="25.0" right="25.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="29.0" layoutY="1207.0" prefHeight="37.0" prefWidth="398.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Shields">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <VBox alignment="CENTER" layoutX="178.0" layoutY="1244.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1244.0">
+                     <children>
+                        <TextField fx:id="SHIELD_ZERO_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="SHIELD_ONE_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="SHIELD_TWO_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="SHIELD_THREE_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="SHIELD_FOUR_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="SHIELD_FIVE_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="SHIELD_SIX_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="SHIELD_SEVEN_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                     </children>
+                     <padding>
+                        <Insets left="25.0" right="25.0" />
+                     </padding>
+                  </VBox>
+                  <HBox alignment="CENTER" layoutX="30.0" layoutY="1487.0" prefHeight="37.0" prefWidth="398.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1487.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Armors">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <VBox alignment="CENTER" layoutX="178.0" layoutY="1524.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1524.0">
+                     <children>
+                        <TextField fx:id="ARMOR_ZERO_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="ARMOR_ONE_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="ARMOR_TWO_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="ARMOR_THREE_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="ARMOR_FOUR_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="ARMOR_FIVE_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="ARMOR_SIX_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                        <TextField fx:id="ARMOR_SEVEN_NAME" maxWidth="414.0" prefHeight="26.0" prefWidth="414.0" promptText="Name" />
+                     </children>
+                     <padding>
+                        <Insets left="25.0" right="25.0" />
+                     </padding>
+                  </VBox>
+                  <HBox alignment="CENTER" layoutX="29.0" layoutY="1767.0" prefHeight="37.0" prefWidth="398.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1767.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pets">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="128.0" layoutY="1804.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1804.0">
+                     <children>
+                        <VBox prefHeight="208.0" prefWidth="297.0" spacing="5.0">
+                           <children>
+                              <TextField fx:id="PET_ZERO_NAME" prefHeight="26.0" prefWidth="248.0" promptText="Name" />
+                              <TextField fx:id="PET_ONE_NAME" prefHeight="26.0" prefWidth="248.0" promptText="Name" />
+                              <TextField fx:id="PET_TWO_NAME" prefHeight="26.0" prefWidth="248.0" promptText="Name" />
+                              <TextField fx:id="PET_THREE_NAME" prefHeight="26.0" prefWidth="248.0" promptText="Name" />
+                              <TextField fx:id="PET_FOUR_NAME" prefHeight="26.0" prefWidth="248.0" promptText="Name" />
+                              <TextField fx:id="PET_FIVE_NAME" prefHeight="26.0" prefWidth="248.0" promptText="Name" />
+                              <TextField fx:id="PET_SIX_NAME" prefHeight="26.0" prefWidth="248.0" promptText="Name" />
+                              <TextField fx:id="PET_SEVEN_NAME" prefHeight="26.0" prefWidth="248.0" promptText="Name" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                           <children>
+                              <ChoiceBox fx:id="PET_ZERO_TYPE" prefWidth="150.0" />
+                              <ChoiceBox fx:id="PET_ONE_TYPE" prefWidth="150.0" />
+                              <ChoiceBox fx:id="PET_TWO_TYPE" prefWidth="150.0" />
+                              <ChoiceBox fx:id="PET_THREE_TYPE" prefWidth="150.0" />
+                              <ChoiceBox fx:id="PET_FOUR_TYPE" prefWidth="150.0" />
+                              <ChoiceBox fx:id="PET_FIVE_TYPE" prefWidth="150.0" />
+                              <ChoiceBox fx:id="PET_SIX_TYPE" prefWidth="150.0" />
+                              <ChoiceBox fx:id="PET_SEVEN_TYPE" prefWidth="150.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets left="25.0" right="25.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <HBox alignment="CENTER" layoutX="161.0" layoutY="417.0" maxHeight="37.0" prefHeight="37.0" prefWidth="476.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="SAVE_BUTTON" mnemonicParsing="false" text="Save" />
+            <Button fx:id="CANCEL_BUTTON" mnemonicParsing="false" text="Cancel" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="2.0" layoutY="2.0" maxHeight="41.0" prefHeight="41.0" prefWidth="476.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TextField fx:id="PROFILE_NAME" promptText="Profile name" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

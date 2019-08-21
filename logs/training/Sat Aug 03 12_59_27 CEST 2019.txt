@@ -1,0 +1,30 @@
+WindZard
+{name: WindZard
+,Fire: 15,Water: 100,Wind: 70,Ice: 85,Earth: 130,Energy: 100,Light: 85,Darkness: 115}
+Searlok
+{name: Searlok
+,Fire: 20,Water: 120,Wind: 110,Ice: 140,Earth: 90,Energy: 90,Light: 90,Darkness: 90}
+LightZard (2) WW
+{name: LightZard (2) WW
+,Fire: 100,Water: 15,Wind: 85,Ice: 100,Earth: 15,Energy: 85,Light: 70,Darkness: 130}
+Frost Wraith A
+{name: Frost Wraith A
+,Fire: 150,Water: 25,Wind: 75,Ice: 25,Earth: 75,Energy: 150,Light: 75,Darkness: 75}
+Sarkanian
+{name: Sarkanian
+,Fire: 15,Water: 70,Wind: 100,Ice: 85,Earth: 100,Energy: 130,Light: 115,Darkness: 85}
+Hydra
+{name: Hydra
+,Fire: 75,Water: 40,Wind: 75,Ice: 50,Earth: 50,Energy: 90,Light: 67,Darkness: 67}
+Vampire Warrior
+{name: Vampire Warrior
+,Fire: 15,Water: 10,Wind: 100,Ice: 100,Earth: 75,Energy: 100,Light: 130,Darkness: 50}
+Furious Diretooth
+{name: Furious Diretooth
+,Fire: 130,Water: 85,Wind: 105,Ice: 100,Earth: 50,Energy: 100,Light: 120,Darkness: 65}
+Am-Bush (2)
+{name: Am-Bush (2)
+,Fire: 120,Water: 200,Wind: 80,Ice: 110,Earth: 60,Energy: 100,Light: 50,Darkness: 100}
+Undead Paladin
+{name: Undead Paladin
+,Fire: 80,Water: 100,Wind: 110,Ice: 80,Earth: 90,Energy: 110,Light: 120,Darkness: 60}

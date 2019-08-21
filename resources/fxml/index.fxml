@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:controller="gui.controller.IndexController" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane maxWidth="71.0" prefHeight="71.0" prefWidth="600.0" style="-fx-background-color: #649393; -fx-border-color: black; -fx-border-width: 2;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" layoutX="4.0" layoutY="4.0" prefHeight="69.0" prefWidth="596.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="SETTINGS_BUTTON" mnemonicParsing="false" text="Button">
+                           <HBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AQ-bot-v2" textAlignment="CENTER" textOrigin="CENTER">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="SCREEN_CAP_BUTTON" mnemonicParsing="false" text="ScreenCap">
+                           <HBox.margin>
+                              <Insets right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="73.0" prefHeight="327.0" prefWidth="600.0" style="-fx-border-color: black; -fx-border-width: 2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="73.0">
+         <children>
+            <HBox alignment="CENTER" layoutX="4.0" layoutY="4.0" prefHeight="50.0" prefWidth="596.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ComboBox fx:id="PROFILE_BOX" prefHeight="26.0" prefWidth="200.0" promptText="Choose profile">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </ComboBox>
+                  <Button fx:id="EDIT_PROFILE_BUTTON" mnemonicParsing="false" text="Edit">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="NEW_PROFILE_BUTTON" mnemonicParsing="false" text="New" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="2.0" layoutY="52.0" prefHeight="50.0" prefWidth="596.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+               <children>
+                  <ComboBox fx:id="BOT_BOX" prefHeight="26.0" prefWidth="200.0" promptText="Choose bot" />
+                  <TextField fx:id="ROUND_FIELD" prefHeight="26.0" prefWidth="101.0" promptText="Rounds">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="2.0" layoutY="277.0" prefHeight="50.0" prefWidth="592.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Button fx:id="START_BUTTON" mnemonicParsing="false" text="Start" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

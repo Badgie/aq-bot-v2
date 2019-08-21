@@ -1,0 +1,104 @@
+##########################################
+#######          General           #######
+##########################################
+PROFILE=default
+
+# Boolean values
+# 0 = false/no
+# 1 = true/yes
+USE_SPELLS=0
+USE_ALLY_ASSIST=0
+DYNAMIC_WEAPONS=0
+DYNAMIC_PETS=0
+GUARDIAN=0
+SUBRACE=0
+
+# Percentage as integer
+HEALTH_POT_THRESHOLD=25
+MANA_POT_THRESHOLD=50
+
+# Index on individual list as integer
+ARMOR=0
+ITEM=0
+WEAPON=0
+SHIELD=0
+PET=0
+
+##########################################
+#######           Spells           #######
+##########################################
+# name;modifier
+SPELL_ZERO=Generic;Ice
+SPELL_ONE=
+SPELL_TWO=
+SPELL_THREE=
+SPELL_FOUR=
+SPELL_FIVE=
+SPELL_SIX=
+SPELL_SEVEN=
+
+##########################################
+#######           Items            #######
+##########################################
+# name
+ITEM_ZERO=Generic
+ITEM_ONE=
+ITEM_TWO=
+ITEM_THREE=
+ITEM_FOUR=
+ITEM_FIVE=
+ITEM_SIX=
+ITEM_SEVEN=
+
+##########################################
+#######          Weapons           #######
+##########################################
+# name;modifier
+WEAP_ZERO=Generic;Earth;
+WEAP_ONE=
+WEAP_TWO=
+WEAP_THREE=
+WEAP_FOUR=
+WEAP_FIVE=
+WEAP_SIX=
+WEAP_SEVEN=
+
+##########################################
+#######           Shield           #######
+##########################################
+# name
+SHIELD_ZERO=Generic
+SHIELD_ONE=
+SHIELD_TWO=
+SHIELD_THREE=
+SHIELD_FOUR=
+SHIELD_FIVE=
+SHIELD_SIX=
+SHIELD_SEVEN=
+
+##########################################
+#######           Armors           #######
+##########################################
+# name
+ARMOR_ZERO=Generic
+ARMOR_ONE=
+ARMOR_TWO=
+ARMOR_THREE=
+ARMOR_FOUR=
+ARMOR_FIVE=
+ARMOR_SIX=
+ARMOR_SEVEN=
+
+##########################################
+#######            Pets            #######
+##########################################
+# name;modifier
+PET_ZERO=Generic;Fire
+PET_ONE=
+PET_TWO=
+PET_THREE=
+PET_FOUR=
+PET_FIVE=
+PET_SIX=
+PET_SEVEN=
+
