@@ -3,16 +3,17 @@ package log;
 import util.Util;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Log {
     private Date start;
+    private Date end;
     private int xp;
     private int gold;
     private int ztoken;
@@ -21,6 +22,7 @@ public class Log {
 
     public Log() {
         this.start = new Date();
+        this.end = null;
         this.xp = 0;
         this.gold = 0;
         this.ztoken = 0;
@@ -48,6 +50,14 @@ public class Log {
         return enemies;
     }
 
+    public Date getStart() {
+        return start;
+    }
+
+    public Date getEnd() {
+        return end;
+    }
+
     public void addXp(int xp) {
         this.xp += xp;
     }
@@ -68,7 +78,17 @@ public class Log {
         this.deaths++;
     }
 
+    public void setEnd() {
+        this.end = new Date();
+    }
+
+    public LocalTime getDuration() {
+        long diff = end.getTime() - start.getTime();
+        return LocalTime.ofNanoOfDay(diff);
+    }
+
     public void writeToFile() {
+        setEnd();
         String date = "log-" + start.toString();
         date = date.substring(0, date.indexOf(" CEST"));
         date = date.replace(" ", "-");
@@ -91,8 +111,12 @@ public class Log {
         StringBuilder builder = new StringBuilder();
         builder.append("AQ-bot log: ")
                 .append(start.toString())
-                .append(" -> ").append(new Date())
-                .append("\n").append("XP: ")
+                .append(" -> ").append(end.toString())
+                .append("\n")
+                .append("Duration:")
+                .append(getDuration().toString())
+                .append("\n")
+                .append("XP: ")
                 .append(xp).append("\n")
                 .append("Gold: ")
                 .append(gold)
