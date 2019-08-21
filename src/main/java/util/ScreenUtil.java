@@ -28,7 +28,6 @@ public class ScreenUtil {
     public boolean checkTurn() throws IOException, AWTException {
         JSONObject attackBtn = util.getDimsAsJSONObject("combat/menu/attack");
         BufferedImage img = util.takeScrot(attackBtn);
-        System.out.println(tess.getImageText(img));
         return tess.getImageText(img).contains("Attack");
     }
 
