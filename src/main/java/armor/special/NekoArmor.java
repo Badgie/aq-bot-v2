@@ -18,7 +18,7 @@ public class NekoArmor extends Armor {
     public NekoArmor(String name) throws IOException {
         this.name = name;
         this.skills = addSkills();
-        this.charges = 35;
+        this.charges = 0;
     }
 
     @Override
