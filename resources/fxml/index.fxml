@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:controller="gui.controller.IndexController" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.IndexController">
    <children>
       <AnchorPane maxWidth="71.0" prefHeight="71.0" prefWidth="600.0" style="-fx-background-color: #649393; -fx-border-color: black; -fx-border-width: 2;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -17,7 +17,7 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="SETTINGS_BUTTON" mnemonicParsing="false" text="Button">
+                        <Button fx:id="SETTINGS_BUTTON" mnemonicParsing="false" text="Settings">
                            <HBox.margin>
                               <Insets left="10.0" top="10.0" />
                            </HBox.margin>
@@ -33,15 +33,7 @@
                         </Text>
                      </children>
                   </HBox>
-                  <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Button fx:id="SCREEN_CAP_BUTTON" mnemonicParsing="false" text="ScreenCap">
-                           <HBox.margin>
-                              <Insets right="10.0" top="10.0" />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                  </HBox>
+                  <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" />
                </children>
             </HBox>
          </children>
@@ -60,7 +52,11 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="NEW_PROFILE_BUTTON" mnemonicParsing="false" text="New" />
+                  <Button fx:id="NEW_PROFILE_BUTTON" mnemonicParsing="false" text="New">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></Button>
+                  <Button mnemonicParsing="false" text="Delete" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="2.0" layoutY="52.0" prefHeight="50.0" prefWidth="596.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
@@ -78,6 +74,7 @@
                   <Button fx:id="START_BUTTON" mnemonicParsing="false" text="Start" />
                </children>
             </HBox>
+            <HBox fx:id="EXTRAS_HBOX" layoutX="1.0" layoutY="102.0" prefHeight="173.0" prefWidth="592.0" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0" />
          </children>
       </AnchorPane>
    </children>
