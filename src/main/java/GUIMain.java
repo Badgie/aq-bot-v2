@@ -14,7 +14,7 @@ import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-public class Main extends Application {
+public class GUIMain extends Application {
 
     public static void main(String[] args) {
         launch(args);
