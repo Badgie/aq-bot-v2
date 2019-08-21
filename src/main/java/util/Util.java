@@ -115,8 +115,6 @@ public class Util {
                 rand.nextInt(maxY - minY) + minY + 1
         );
 
-        System.out.println(p.toString());
-
         return p;
     }
 
