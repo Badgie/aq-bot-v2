@@ -8,9 +8,9 @@ import java.util.List;
 public class GenericWeapon extends Weapon {
     private String name;
     private List<Skill> skills;
-    private List<Affinity> affinity;
+    private List<String> affinity;
 
-    public GenericWeapon(String name, List<Affinity> affinity) {
+    public GenericWeapon(String name, List<String> affinity) {
         this.name = name;
         this.affinity = affinity;
     }
@@ -36,7 +36,7 @@ public class GenericWeapon extends Weapon {
     }
 
     @Override
-    public List<Affinity> getAffinity() {
+    public List<String> getAffinity() {
         return affinity;
     }
 
