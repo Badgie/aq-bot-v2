@@ -31,6 +31,7 @@ public class GenericEnemy extends Enemy {
         StatUtil stats = new StatUtil();
         log.addEnemy(stats.getEnemyName());
         boolean win;
+        fightSetup();
         while(true) {
             boolean hpUnderThreshold = stats.getPlayerHp() < (double) player.getHealthPotThreshold();
             boolean playerHasHealthPots = player.getHealthPots() > 0;
