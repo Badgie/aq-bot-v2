@@ -232,15 +232,15 @@ public class SetupUtil {
         String[] configSplit;
         for (int i = 0; i < CONFIG_WEAP_ARRAY.length; i++) {
             config = obj.getString(CONFIG_WEAP_ARRAY[i]);
-            List<Affinity> affinities = new ArrayList<>();
+            List<String> affinities = new ArrayList<>();
             if (!config.equals(EPSILON)) {
                 configSplit = config.split(";");
 
                 for (int j = 1; j < configSplit.length; j++) {
                     if (configSplit[j] != null && !configSplit[j].equals("")) {
-                        affinities.add(new Affinity(configSplit[j]));
+                        affinities.add(configSplit[j]);
                     } else {
-                        affinities.add(new Affinity(" "));
+                        affinities.add(" ");
                     }
                 }
 
@@ -249,8 +249,8 @@ public class SetupUtil {
                         affinities
                 ));
             } else {
-                affinities.add(new Affinity(" "));
-                affinities.add(new Affinity(" "));
+                affinities.add(" ");
+                affinities.add(" ");
                 weapons.add(Weapon.create(
                         " ",
                         affinities
