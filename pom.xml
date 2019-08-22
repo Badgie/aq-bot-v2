@@ -152,6 +152,7 @@
                     <include>profile/</include>
                     <include>coords/</include>
                     <include>tessdata/</include>
+                    <include>readme.txt</include>
                 </includes>
             </resource>
             <resource>
