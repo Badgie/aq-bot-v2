@@ -6,13 +6,12 @@ import player.Player;
 import util.CursorUtil;
 import util.ScreenUtil;
 import util.StatUtil;
+import weapon.Weapon;
 
 import java.awt.*;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
 
 public abstract class Enemy {
     public Log log;
@@ -27,7 +26,7 @@ public abstract class Enemy {
     }
 
     public static Enemy create(Player player, Log log, String name) throws IOException, AWTException, InterruptedException {
-        StatUtil stats = new StatUtil();
+        ScreenUtil screen = new ScreenUtil();
         Enemy enemy;
 
         //TODO: add affinities
@@ -35,14 +34,65 @@ public abstract class Enemy {
             default:
                 enemy = new GenericEnemy(
                         name,
-                        new HashMap<>(),
-                        //processAffinities(screen.getEnemyAffinities()),
+                        processAffinities(screen.getEnemyAffinities()),
                         player,
                         log
                 );
                 break;
         }
         return enemy;
+    }
+
+    /**
+     * Swaps equipment based on enemy
+     */
+    public void fightSetup() throws IOException, AWTException, InterruptedException {
+        List<Map.Entry<String, Integer>> weaknesses = getEnemyWeaknessesSorted();
+
+        if (player.isDynamicWeapons()) changeWeapon(weaknesses);
+    }
+
+    private void changeWeapon(List<Map.Entry<String, Integer>> weaknesses) throws IOException, AWTException, InterruptedException {
+        List<Weapon> playerWeapons = player.getWeapons();
+        CursorUtil cursor = new CursorUtil();
+        int weaponIndex = -1;
+
+        outerloop:
+        for (Map.Entry<String, Integer> weakness : weaknesses) {
+            for (Weapon w : playerWeapons) {
+                if (w.getAffinity().contains(weakness.getKey())) {
+                    weaponIndex = playerWeapons.indexOf(w);
+                    break outerloop;
+                }
+            }
+        }
+
+        if (weaponIndex != -1) {
+            cursor.weapon(weaponIndex);
+        }
+    }
+
+    private List<Map.Entry<String, Integer>> getEnemyWeaknessesSorted() {
+        List<Map.Entry<String, Integer>> weaknesses = new ArrayList<>(affinities.entrySet());
+        weaknesses.sort(Map.Entry.comparingByValue());
+        return weaknesses;
+    }
+
+    public static Map<String, Integer> processAffinities(String affinities) {
+        Map<String, Integer> affinityMap = new HashMap<>();
+        String[] affinitySets = affinities.split("\n");
+        String[] affinity;
+        String id;
+        String percentage;
+
+        for (String s : affinitySets) {
+            affinity = s.split(" ");
+            id = affinity[0];
+            percentage = affinity[1].replaceAll("[^0-9-]", "");
+            affinityMap.put(id, Integer.parseInt(percentage));
+        }
+
+        return affinityMap;
     }
 
     public void logVictoryRewards(Log log) throws IOException, AWTException {
