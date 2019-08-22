@@ -15,16 +15,6 @@ public abstract class Armor {
     private String name;
     private List<Skill> skills;
 
-    private static String[] TERROR_SET = {
-            "Guardian Menace Raiment"
-    };
-
-    private static String[] NEKO = {
-            "Sol Neko",
-            "Luna Neko"
-    };
-
-
     public abstract String getName();
     public abstract List<Skill> getSkills();
     public abstract List<Skill> addSkills() throws IOException;
@@ -33,9 +23,12 @@ public abstract class Armor {
     public abstract void regularAttack();
 
     public static Armor create(String name) throws IOException, AWTException {
-        if (arrayContains(TERROR_SET, name)) {
+        String lowerCaseName = name.toLowerCase();
+        if (lowerCaseName.equals("terror set") ||
+                arrayContains(SpecialArmor.TERROR_SET, lowerCaseName)) {
             return new TerrorSetArmor(name);
-        } else if (arrayContains(NEKO, name)) {
+        } else if (lowerCaseName.equals("neko") ||
+                arrayContains(SpecialArmor.NEKO, lowerCaseName)) {
             return new NekoArmor(name);
         } else {
             return new GenericArmor(name);
