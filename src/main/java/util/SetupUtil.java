@@ -129,15 +129,15 @@ public class SetupUtil {
         List<Pet> pets = createPets(profile);
 
         Armor armor = Pattern.matches("[0-9]", profile.getString(CONFIG_ARMOR)) ?
-                        armors.get(profile.getInt(CONFIG_ARMOR) - 1) : null;
+                        armors.get(profile.getInt(CONFIG_ARMOR)) : null;
         Item item = Pattern.matches("[0-9]", profile.getString(CONFIG_ITEM)) ?
-                        items.get(profile.getInt(CONFIG_ITEM) - 1) : null;
+                        items.get(profile.getInt(CONFIG_ITEM)) : null;
         Weapon weapon = Pattern.matches("[0-9]", profile.getString(CONFIG_WEAPON)) ?
-                        weapons.get(profile.getInt(CONFIG_WEAPON) - 1) : null;
+                        weapons.get(profile.getInt(CONFIG_WEAPON)) : null;
         Shield shield = Pattern.matches("[0-9]", profile.getString(CONFIG_SHIELD)) ?
-                        shields.get(profile.getInt(CONFIG_SHIELD) - 1) : null;
+                        shields.get(profile.getInt(CONFIG_SHIELD)) : null;
         Pet pet = Pattern.matches("[0-9]", profile.getString(CONFIG_PET)) ?
-                        pets.get(profile.getInt(CONFIG_PET) - 1) : null;
+                        pets.get(profile.getInt(CONFIG_PET)) : null;
 
         return new Player.PlayerBuilder()
                 .useSpells(parseBoolean(profile.getString(CONFIG_USE_SPELLS)))
