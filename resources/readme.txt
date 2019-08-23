@@ -1,8 +1,8 @@
 ##########################################
 #######           AQ bot           #######
 ##########################################
-version: 0.0.1
-release: initial
+version: 0.0.2
+release: update
 
 profile functionality
     health pot threshold
@@ -15,6 +15,7 @@ profile functionality
 ##########################################
 - armor names are no longer case sensitive
 - it is now possible to name an armor by its' set name, e.g. 'terror set' or 'neko'
+    - it is still possible to name an armor by its literal name
 - dynamic weapons are now functional
 
 ##########################################
