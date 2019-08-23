@@ -62,7 +62,7 @@ public abstract class Enemy {
                 if (hpUnderThreshold && playerHasHealthPots) {
                     player.useHealthPotion();
                 } else {
-                    if (playerArmorHasSkills && player.getArmor().skillCondition(this)) {
+                    if (playerArmorHasSkills && player.getArmor().skillCondition(affinities)) {
                         player.useSkill();
                     } else {
                         player.getArmor().regularAttack();
@@ -117,6 +117,8 @@ public abstract class Enemy {
             for (Weapon w : player.getWeapons()) {
                 if (w.getAffinity().contains(weaknesses.get(i).getAffinity())) {
                     weaponIndex = player.getWeapons().indexOf(w);
+                    System.out.println("Enemy weakness: " + weaknesses.get(i).toString());
+                    System.out.println("Weapon of choice: " + w.toString());
                     break outerloop;
                 }
             }
@@ -125,9 +127,14 @@ public abstract class Enemy {
         // fix this abomination
         if (weaponIndex != -1 && !player.getWeapon().getAffinity().get(0)
                 .equals(player.getWeapons().get(weaponIndex).getAffinity().get(0))) {
+            System.out.println("Weapon of choice is different from equipped, swapping");
             cursor.weapon(weaponIndex);
             player.setWeapon(player.getWeapons().get(weaponIndex));
+        } else {
+            System.out.println("Weapon of choice is already equipped");
         }
+
+        System.out.println("\n###########################################\n");
     }
 
     private List<Affinity> getEnemyWeaknessesSorted() {
@@ -147,6 +154,9 @@ public abstract class Enemy {
             affinity = s.split(" ");
             id = affinity[0];
             percentage = affinity[1].replaceAll("[^0-9-]", "");
+
+            if (Integer.parseInt(percentage) > 300) percentage = percentage.substring(0, percentage.length() - 1);
+
             affinityList.add(new Affinity(Integer.parseInt(percentage), id));
         }
 
@@ -175,6 +185,14 @@ public abstract class Enemy {
             if (a.getAffinity().equals(type)) return a.getPercentage();
         }
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Enemy {\n" +
+                "name='" + name + "\',\n" +
+                "affinities=" + affinities +
+                '}';
     }
 
     public abstract String getName();
