@@ -7,10 +7,7 @@ import util.CursorUtil;
 import util.StatUtil;
 
 import java.awt.*;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Date;
 
 public class RandomBattleBot extends Bot {
     private int battles;
@@ -30,7 +27,7 @@ public class RandomBattleBot extends Bot {
         for (int i = 0; i < battles; i++) {
             cursor.heal();
             cursor.randomBattle();
-            Thread.sleep(2000);
+            Thread.sleep(3000);
             Enemy enemy = Enemy.create(player, log, stats.getEnemyName());
             enemy.fight();
         }
