@@ -2,6 +2,7 @@ package armor.special;
 
 import armor.Armor;
 import common.Affinity;
+import enemy.Enemy;
 import player.Skill;
 import util.CursorUtil;
 import util.StatUtil;
@@ -63,8 +64,8 @@ public class TerrorSetArmor extends Armor {
                 '}';
     }
 
-    public boolean skillCondition() throws IOException, AWTException {
+    public boolean skillCondition(Enemy enemy) throws IOException, AWTException {
         StatUtil stats = new StatUtil();
-        return stats.getPlayerSp() >= 50;
+        return (stats.getPlayerSp() >= 50 && enemy.getAffinity("Darkness") >= 100);
     }
 }
