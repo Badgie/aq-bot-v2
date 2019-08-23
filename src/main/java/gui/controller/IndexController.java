@@ -364,6 +364,7 @@ public class IndexController implements Initializable {
                 Util.getBot().getLog().writeToFile();
                 Util.getLiveStatsStage().close();
                 Util.getBotService().cancel();
+                setPostBotStats(Util.getBot().getLog());
             }
         });
 
