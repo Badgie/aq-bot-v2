@@ -127,7 +127,6 @@ public class SetupUtil {
         List<Shield> shields = createShields(profile);
         List<Armor> armors = createArmors(profile);
         List<Pet> pets = createPets(profile);
-        System.out.println(armors.get(5).toString());
 
         Armor armor = Pattern.matches("[0-9]", profile.getString(CONFIG_ARMOR)) ?
                         armors.get(profile.getInt(CONFIG_ARMOR) - 1) : null;
