@@ -29,6 +29,8 @@ public class TessUtil {
 
         tess.SetImage(img);
 
+        tess.SetSourceResolution(70);
+
         BytePointer outText = tess.GetUTF8Text();
         String result = outText.getString();
 
