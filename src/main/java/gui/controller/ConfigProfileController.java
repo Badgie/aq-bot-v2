@@ -5,14 +5,12 @@ import item.Item;
 import javafx.collections.FXCollections;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import org.json.JSONObject;
 import pet.Pet;
 import shield.Shield;
@@ -196,15 +194,15 @@ public class ConfigProfileController implements Initializable {
                             .append("MANA_POT_THRESHOLD=")
                             .append(parseString(MANA_POT_THRESHOLD.getText())).append("\n\n")
                             .append("ARMOR=")
-                            .append(ARMOR.getSelectionModel().getSelectedItem().toString()).append("\n")
+                            .append(parseGear(ARMOR.getSelectionModel().getSelectedItem().toString())).append("\n")
                             .append("ITEM=")
-                            .append(ITEM.getSelectionModel().getSelectedItem().toString()).append("\n")
+                            .append(parseGear(ITEM.getSelectionModel().getSelectedItem().toString())).append("\n")
                             .append("WEAPON=")
-                            .append(WEAPON.getSelectionModel().getSelectedItem().toString()).append("\n")
+                            .append(parseGear(WEAPON.getSelectionModel().getSelectedItem().toString())).append("\n")
                             .append("SHIELD=")
-                            .append(SHIELD.getSelectionModel().getSelectedItem().toString()).append("\n")
+                            .append(parseGear(SHIELD.getSelectionModel().getSelectedItem().toString())).append("\n")
                             .append("PET=")
-                            .append(PET.getSelectionModel().getSelectedItem().toString()).append("\n\n")
+                            .append(parseGear(PET.getSelectionModel().getSelectedItem().toString())).append("\n\n")
                             .append("##########################################\n")
                             .append("#######           Spells           #######\n")
                             .append("##########################################\n")
@@ -596,5 +594,12 @@ public class ConfigProfileController implements Initializable {
         } else {
             return "";
         }
+    }
+
+    private String parseGear(String s) {
+        if (s.matches("[0-9]")) {
+            return String.valueOf(Integer.parseInt(s) - 1);
+        }
+        return s;
     }
 }
