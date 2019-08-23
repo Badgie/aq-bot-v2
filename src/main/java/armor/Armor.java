@@ -2,10 +2,8 @@ package armor;
 
 import armor.special.NekoArmor;
 import armor.special.TerrorSetArmor;
-import common.Affinity;
-import org.json.JSONObject;
+import enemy.Enemy;
 import player.Skill;
-import util.Util;
 
 import java.awt.*;
 import java.io.IOException;
@@ -19,7 +17,7 @@ public abstract class Armor {
     public abstract List<Skill> getSkills();
     public abstract List<Skill> addSkills() throws IOException;
     public abstract void useSkill() throws IOException, AWTException, InterruptedException;
-    public abstract boolean skillCondition() throws IOException, AWTException;
+    public abstract boolean skillCondition(Enemy enemy) throws IOException, AWTException;
     public abstract void regularAttack();
 
     public static Armor create(String name) throws IOException, AWTException {

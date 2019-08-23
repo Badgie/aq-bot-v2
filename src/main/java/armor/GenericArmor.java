@@ -1,5 +1,6 @@
 package armor;
 
+import enemy.Enemy;
 import player.Skill;
 
 import java.awt.*;
@@ -41,7 +42,7 @@ public class GenericArmor extends Armor {
     }
 
     @Override
-    public boolean skillCondition() throws IOException, AWTException {
+    public boolean skillCondition(Enemy enemy) throws IOException, AWTException {
         return false;
     }
 
