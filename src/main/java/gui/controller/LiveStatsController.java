@@ -28,7 +28,6 @@ public class LiveStatsController implements Initializable, PropertyChangeListene
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         String prop = evt.getPropertyName();
-        System.out.println(prop);
         switch (prop) {
             case "xp":
                 XP_TEXT.setText("XP: " + LOG.getXp());
