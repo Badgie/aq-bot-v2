@@ -180,6 +180,7 @@ public class IndexController implements Initializable {
                         }
                     };
                     service.start();
+                    Util.setBotService(service);
                     launchLiveStats();
                     primaryStage.hide();
                 } catch (IOException | AWTException e) {
@@ -361,7 +362,8 @@ public class IndexController implements Initializable {
             public void handle(WindowEvent windowEvent) {
                 Util.getPrimaryStage().show();
                 Util.getBot().getLog().writeToFile();
-                Util.getBotThread().interrupt();
+                Util.getLiveStatsStage().close();
+                Util.getBotService().cancel();
             }
         });
 
