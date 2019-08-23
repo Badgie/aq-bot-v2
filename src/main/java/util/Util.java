@@ -2,11 +2,11 @@ package util;
 
 import bot.Bot;
 import common.RectDimension;
+import javafx.concurrent.Service;
 import javafx.stage.Stage;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
@@ -20,18 +20,16 @@ public class Util {
     private static Stage LIVE_STATS_STAGE;
     private static Bot BOT;
     private static String USR_DIR = System.getProperty("user.dir");
-    private static Thread BOT_THREAD;
-
-    private static int imgCount = 0;
+    private static Service BOT_SERVICE;
 
     public Util() {}
 
-    public static Thread getBotThread() {
-        return BOT_THREAD;
+    public static Service getBotService() {
+        return BOT_SERVICE;
     }
 
-    public static void setBotThread(Thread botThread) {
-        BOT_THREAD = botThread;
+    public static void setBotService(Service botService) {
+        BOT_SERVICE = botService;
     }
 
     public static String getUsrDir() {
@@ -110,12 +108,10 @@ public class Util {
         int maxY = (int) (bounds.getY() + bounds.getHeight());
         Random rand = new Random();
 
-        Point p = new Point(
+        return new Point(
                 rand.nextInt(maxX - minX) + minX + 1,
                 rand.nextInt(maxY - minY) + minY + 1
         );
-
-        return p;
     }
 
     /**
