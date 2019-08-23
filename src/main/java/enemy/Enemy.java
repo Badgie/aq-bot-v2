@@ -17,12 +17,15 @@ public abstract class Enemy {
     public Log log;
     public Player player;
     public String name;
-    public Map<String, Integer> affinities;
+    public List<Affinity> affinities;
 
     public final String LOAD_SCREEN_GRAY = "ff333333";
 
-    protected Enemy() throws IOException, AWTException {
-
+    protected Enemy(String name, List<Affinity> affinities, Player player, Log log) {
+        this.name = name;
+        this.affinities = affinities;
+        this.player = player;
+        this.log = log;
     }
 
     public static Enemy create(Player player, Log log, String name) throws IOException, AWTException, InterruptedException {
@@ -38,48 +41,103 @@ public abstract class Enemy {
                         player,
                         log
                 );
+                System.out.println(enemy.toString());
                 break;
         }
         return enemy;
+    }
+
+    public boolean fight() throws IOException, AWTException, InterruptedException {
+        ScreenUtil screen = new ScreenUtil();
+        CursorUtil cursor = new CursorUtil();
+        StatUtil stats = new StatUtil();
+        log.addEnemy(stats.getEnemyName());
+        boolean win;
+        fightSetup();
+        while(true) {
+            boolean hpUnderThreshold = stats.getPlayerHp() < (double) player.getHealthPotThreshold();
+            boolean playerHasHealthPots = player.getHealthPots() > 0;
+            boolean playerArmorHasSkills = player.getArmor().getSkills() != null && player.getArmor().getSkills().size() != 0;
+            if (screen.checkTurn()) {
+                if (hpUnderThreshold && playerHasHealthPots) {
+                    player.useHealthPotion();
+                } else {
+                    if (playerArmorHasSkills && player.getArmor().skillCondition(this)) {
+                        player.useSkill();
+                    } else {
+                        player.getArmor().regularAttack();
+                        cursor.attack();
+                        cursor.clearAttack();
+                    }
+                }
+            } else if (screen.checkIfWin()) {
+                logVictoryRewards(log);
+                cursor.victory();
+                cursor.clearAvatar();
+                if (screen.checkZTokens()) {
+                    log.addZtoken(screen.getZtokens());
+                    cursor.zTokens();
+                }
+                // if load screen has started, player did not level up
+                if (screen.getLoadScreenPixelHex().equals(LOAD_SCREEN_GRAY)) {
+                    win = true;
+                    break;
+                }
+                Thread.sleep(1000);
+                if (screen.checkIfLevelUp()) {
+                    cursor.levelUp();
+                }
+                win = true;
+                break;
+            } else if (screen.checkIfDead()) {
+                log.addDeath();
+                cursor.death();
+                win = false;
+                break;
+            } else {
+                Thread.sleep(2000);
+            }
+        }
+        return win;
     }
 
     /**
      * Swaps equipment based on enemy
      */
     public void fightSetup() throws IOException, AWTException, InterruptedException {
-        List<Map.Entry<String, Integer>> weaknesses = getEnemyWeaknessesSorted();
-
+        List<Affinity> weaknesses = getEnemyWeaknessesSorted();
         if (player.isDynamicWeapons()) changeWeapon(weaknesses);
     }
 
-    private void changeWeapon(List<Map.Entry<String, Integer>> weaknesses) throws IOException, AWTException, InterruptedException {
-        List<Weapon> playerWeapons = player.getWeapons();
+    private void changeWeapon(List<Affinity> weaknesses) throws IOException, AWTException, InterruptedException {
         CursorUtil cursor = new CursorUtil();
         int weaponIndex = -1;
-
         outerloop:
-        for (Map.Entry<String, Integer> weakness : weaknesses) {
-            for (Weapon w : playerWeapons) {
-                if (w.getAffinity().contains(weakness.getKey())) {
-                    weaponIndex = playerWeapons.indexOf(w);
+        for (int i = 0; i < weaknesses.size(); i++) {
+            for (Weapon w : player.getWeapons()) {
+                if (w.getAffinity().contains(weaknesses.get(i).getAffinity())) {
+                    weaponIndex = player.getWeapons().indexOf(w);
                     break outerloop;
                 }
             }
         }
 
-        if (weaponIndex != -1) {
+        // fix this abomination
+        if (weaponIndex != -1 && !player.getWeapon().getAffinity().get(0)
+                .equals(player.getWeapons().get(weaponIndex).getAffinity().get(0))) {
             cursor.weapon(weaponIndex);
+            player.setWeapon(player.getWeapons().get(weaponIndex));
         }
     }
 
-    private List<Map.Entry<String, Integer>> getEnemyWeaknessesSorted() {
-        List<Map.Entry<String, Integer>> weaknesses = new ArrayList<>(affinities.entrySet());
-        weaknesses.sort(Map.Entry.comparingByValue());
+    private List<Affinity> getEnemyWeaknessesSorted() {
+        List<Affinity> weaknesses = new ArrayList<>(affinities);
+        weaknesses.sort(Comparator.comparingInt(Affinity::getPercentage).reversed());
         return weaknesses;
     }
 
-    public static Map<String, Integer> processAffinities(String affinities) {
-        Map<String, Integer> affinityMap = new HashMap<>();
+    public static List<Affinity> processAffinities(String affinities) {
+        List<Affinity> affinityList = new ArrayList<>();
         String[] affinitySets = affinities.split("\n");
         String[] affinity;
         String id;
@@ -89,10 +147,10 @@ public abstract class Enemy {
             affinity = s.split(" ");
             id = affinity[0];
             percentage = affinity[1].replaceAll("[^0-9-]", "");
-            affinityMap.put(id, Integer.parseInt(percentage));
+            affinityList.add(new Affinity(Integer.parseInt(percentage), id));
         }
 
-        return affinityMap;
+        return affinityList;
     }
 
     public void logVictoryRewards(Log log) throws IOException, AWTException {
@@ -112,7 +170,13 @@ public abstract class Enemy {
         goldList.forEach(s -> log.addGold(Integer.parseInt(s)));
     }
 
-    public abstract boolean fight() throws IOException, InterruptedException, AWTException;
+    public int getAffinity(String type) {
+        for (Affinity a : affinities) {
+            if (a.getAffinity().equals(type)) return a.getPercentage();
+        }
+        return 0;
+    }
+
     public abstract String getName();
-    public abstract Map<String, Integer> getAffinities();
+    public abstract List<Affinity> getAffinities();
 }
