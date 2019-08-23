@@ -32,8 +32,8 @@ public class Affinity {
     @Override
     public String toString() {
         return "Affinity{" +
-                "percentage=" + percentage +
-                ", affinity='" + affinity + '\'' +
-                '}';
+                affinity + ";" +
+                percentage +
+                "}\n";
     }
 }
