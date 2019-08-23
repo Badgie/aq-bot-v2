@@ -1,5 +1,6 @@
 package armor;
 
+import common.Affinity;
 import enemy.Enemy;
 import player.Skill;
 
@@ -42,7 +43,8 @@ public class GenericArmor extends Armor {
     }
 
     @Override
-    public boolean skillCondition(Enemy enemy) throws IOException, AWTException {
+    public boolean skillCondition(List<Affinity> affinities) throws IOException, AWTException {
+        // no skill conditions, but no skills
         return false;
     }
 

@@ -1,6 +1,7 @@
 package armor.special;
 
 import armor.Armor;
+import common.Affinity;
 import enemy.Enemy;
 import player.Skill;
 import util.CursorUtil;
@@ -67,7 +68,7 @@ public class NekoArmor extends Armor {
                 '}';
     }
 
-    public boolean skillCondition(Enemy enemy) {
+    public boolean skillCondition(List<Affinity> affinities) {
         return this.charges >= 40;
     }
 }

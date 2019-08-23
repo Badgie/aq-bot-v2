@@ -64,8 +64,11 @@ public class TerrorSetArmor extends Armor {
                 '}';
     }
 
-    public boolean skillCondition(Enemy enemy) throws IOException, AWTException {
+    public boolean skillCondition(List<Affinity> affinities) throws IOException, AWTException {
         StatUtil stats = new StatUtil();
-        return (stats.getPlayerSp() >= 50 && enemy.getAffinity("Darkness") >= 100);
+        // terror set skill is darkness damage
+        double sp = stats.getPlayerSp();
+        int affPercent = affinities.get(7).getPercentage();
+        return (sp >= 50 && affPercent >= 100);
     }
 }
