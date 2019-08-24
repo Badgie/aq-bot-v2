@@ -30,10 +30,12 @@ import player.Player;
 import util.*;
 
 import java.awt.*;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -50,6 +52,7 @@ public class IndexController implements Initializable {
     public Button DELETE_BUTTON;
     public HBox EXTRAS_HBOX;
     public TextField ROUND_FIELD;
+    public Button STATISTICS_BUTTON;
     public static boolean IS_NEW_PROFILE;
     public static String PROFILE_NAME;
 
@@ -62,6 +65,7 @@ public class IndexController implements Initializable {
         try {
             settingsButton();
             setChoiceBoxes();
+            launchStatistics();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -381,5 +385,121 @@ public class IndexController implements Initializable {
         stage.setTitle("Configure Profile");
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void launchStatistics() throws IOException {
+        STATISTICS_BUTTON.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                Stage stage = new Stage();
+                VBox box = new VBox();
+                Button exit = new Button("Neat!");
+                Text header = new Text();
+                Text xpText = new Text();
+                Text goldText = new Text();
+                Text ztokenText = new Text();
+                Text deathText = new Text();
+                Text enemyKillsText = new Text();
+                Text totalTimeText = new Text();
+
+                LocalTime totalTime = LocalTime.of(0, 0, 0);
+                long xp = 0;
+                long gold = 0;
+                int ztokens = 0;
+                int deaths = 0;
+                int enemyCount = 0;
+
+                String usrDir = Util.getUsrDir();
+                String os = System.getProperty("os.name");
+
+                if (os.equals("Linux")) usrDir += "/logs";
+                else if (os.contains("Windows")) usrDir += "\\logs";
+
+                File logDir = new File(usrDir);
+                String[] logFiles = logDir.list();
+                String line;
+                String[] lineSplit;
+                FileReader reader = null;
+                BufferedReader bReader = null;
+
+                exit.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        stage.close();
+                    }
+                });
+
+                if (logFiles != null) {
+                    for (String logFile : logFiles) {
+                        try {
+                            reader = new FileReader(usrDir + "/" + logFile);
+                            bReader = new BufferedReader(reader);
+
+                            while ((line = bReader.readLine()) != null) {
+                                if (line.contains("Duration")) {
+                                    lineSplit = line.split(":");
+                                    if (lineSplit.length > 3)
+                                        totalTime = totalTime.plusSeconds(Integer.parseInt(lineSplit[3]));
+                                    if (lineSplit.length > 2)
+                                        totalTime = totalTime.plusMinutes(Integer.parseInt(lineSplit[2]));
+                                    totalTime = totalTime.plusHours(Integer.parseInt(lineSplit[1]));
+                                } else if (line.contains("XP")) {
+                                    lineSplit = line.split(":");
+                                    xp += Integer.parseInt(lineSplit[1].replace(" ", ""));
+                                } else if (line.contains("Gold")) {
+                                    lineSplit = line.split(":");
+                                    gold += Integer.parseInt(lineSplit[1].replace(" ", ""));
+                                } else if (line.contains("Tokens")) {
+                                    lineSplit = line.split(":");
+                                    ztokens += Integer.parseInt(lineSplit[1].replace(" ", ""));
+                                } else if (line.contains("Deaths")) {
+                                    lineSplit = line.split(":");
+                                    deaths += Integer.parseInt(lineSplit[1].replace(" ", ""));
+                                } else if (line.contains("Enemy count")) {
+                                    lineSplit = line.split(":");
+                                    enemyCount += Integer.parseInt(lineSplit[1].replace(" ", ""));
+                                } else if (line.contains("Enemies")) {
+                                    break;
+                                }
+                            }
+
+                            reader.close();
+                            bReader.close();
+                            reader = null;
+                            bReader = null;
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
+                int enemyKills = enemyCount - deaths;
+
+                header.setText("In total, you have:");
+                xpText.setText("Gained " + xp + " experience");
+                goldText.setText("Gained " + gold + " gold");
+                ztokenText.setText("Gained " + ztokens + " Z-Tokens");
+                deathText.setText("Died " + deaths + " times");
+                enemyKillsText.setText("But! Killed " + enemyKills + " enemies");
+                totalTimeText.setText("In a total of " + totalTime.toString());
+
+                box.getChildren().setAll(
+                        header,
+                        xpText,
+                        goldText,
+                        ztokenText,
+                        deathText,
+                        enemyKillsText,
+                        totalTimeText,
+                        exit
+                );
+
+                box.setSpacing(5);
+                box.setAlignment(Pos.CENTER);
+
+                stage.setScene(new Scene(box, 200, 250));
+                stage.show();
+            }
+        });
     }
 }
