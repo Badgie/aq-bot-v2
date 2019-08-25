@@ -113,11 +113,11 @@ public abstract class Enemy {
         CursorUtil cursor = new CursorUtil();
         int weaponIndex = -1;
         outerloop:
-        for (int i = 0; i < weaknesses.size(); i++) {
+        for (Affinity weakness : weaknesses) {
             for (Weapon w : player.getWeapons()) {
-                if (w.getAffinity().contains(weaknesses.get(i).getAffinity())) {
+                if (w.getAffinity().contains(weakness.getAffinity())) {
                     weaponIndex = player.getWeapons().indexOf(w);
-                    System.out.println("Enemy weakness: " + weaknesses.get(i).toString());
+                    System.out.println("Enemy weakness: " + weakness.toString());
                     System.out.println("Weapon of choice: " + w.toString());
                     break outerloop;
                 }
@@ -178,13 +178,6 @@ public abstract class Enemy {
 
         xpList.forEach(s -> log.addXp(Integer.parseInt(s)));
         goldList.forEach(s -> log.addGold(Integer.parseInt(s)));
-    }
-
-    public int getAffinity(String type) {
-        for (Affinity a : affinities) {
-            if (a.getAffinity().equals(type)) return a.getPercentage();
-        }
-        return 0;
     }
 
     @Override
