@@ -50,6 +50,7 @@ public class IndexController implements Initializable {
     public Button START_BUTTON;
     public Button SETTINGS_BUTTON;
     public Button DELETE_BUTTON;
+    public Button SCROT_BUTTON;
     public HBox EXTRAS_HBOX;
     public TextField ROUND_FIELD;
     public Button STATISTICS_BUTTON;
@@ -63,10 +64,11 @@ public class IndexController implements Initializable {
         startBotButton();
         deleteProfileButton();
         try {
+            scrotButton();
             settingsButton();
             setChoiceBoxes();
             launchStatistics();
-        } catch (IOException e) {
+        } catch (IOException | AWTException e) {
             e.printStackTrace();
         }
     }
@@ -203,51 +205,14 @@ public class IndexController implements Initializable {
         });
     }
 
-    /*private void screenCapButton() throws AWTException, IOException {
-        SCREEN_CAP_BUTTON.setOnMouseClicked(new EventHandler<MouseEvent>() {
+    private void scrotButton() throws AWTException, IOException {
+        SCROT_BUTTON.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                try {
-                    Robot robot = new Robot();
-                    ScreenUtil u = new ScreenUtil();
-                    ConfigUtil conf = new ConfigUtil();
-
-                    BufferedImage screen;
-                    Rectangle gameScreen;
-                    final RectDimension rectDims;
-
-                    if (Files.exists(Paths.get("./config/game-screen.txt"))) {
-                        rectDims = conf.getGameScreenConfig();
-                    } else {
-                        rectDims = u.getGameWindowScreen();
-                    }
-
-                    gameScreen = new Rectangle(
-                            (int) rectDims.getX(),
-                            (int) rectDims.getY(),
-                            (int) rectDims.getWidth(),
-                            (int) rectDims.getHeight()
-                    );
-
-                    screen = robot.createScreenCapture(gameScreen);
-
-                    SwingUtilities.invokeLater(new Runnable() {
-                        public void run() {
-                            new ScreenCapture(screen, rectDims);
-                        }
-                    });
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            new ScreenCapture(screen, rectDims);
-                        }
-                    });
-                } catch (AWTException | IOException e) {
-                    e.printStackTrace();
-                }
+                Util.launchScrotStage();
             }
         });
-    }*/
+    }
 
     private void setChoiceBoxes() {
         GUIUtil gui = new GUIUtil();
