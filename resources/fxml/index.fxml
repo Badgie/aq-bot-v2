@@ -33,7 +33,19 @@
                         </Text>
                      </children>
                   </HBox>
-                  <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" />
+                  <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="SCROT_BUTTON" mnemonicParsing="false" text="Scrot">
+                           <HBox.margin>
+                              <Insets right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="STATISTICS_BUTTON" mnemonicParsing="false" text="Statistics">
+                           <HBox.margin>
+                              <Insets right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children></HBox>
                </children>
             </HBox>
          </children>
