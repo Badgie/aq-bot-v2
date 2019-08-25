@@ -83,8 +83,8 @@ public class Util {
 
         int relativeX = (int)(gameScreenDims.getX() + (gameScreenDims.getWidth() * relativeXPercent));
         int relativeY = (int)(gameScreenDims.getY() + (gameScreenDims.getHeight() * relativeYPercent));
-        int relativeWidth = (int)(gameScreenDims.getWidth() * relativeWidthPercent /*- obj.getInt("ORIGIN_WIDTH_INDENT_RIGHT")*/);
-        int relativeHeight = (int)(gameScreenDims.getHeight() * relativeHeightPercent/* - obj.getInt("ORIGIN_HEIGHT_INDENT_BOTTOM")*/);
+        int relativeWidth = (int)(gameScreenDims.getWidth() * relativeWidthPercent);
+        int relativeHeight = (int)(gameScreenDims.getHeight() * relativeHeightPercent);
 
         return new Rectangle(
                 relativeX,
