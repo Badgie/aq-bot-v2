@@ -92,7 +92,7 @@ public class ScreenCaptureFX {
                     json.put("ORIGIN_HEIGHT_INDENT_BOTTOM", gameScreenDims.getHeightIndentBottom());
 
                     try {
-                        FileWriter writer = new FileWriter(Util.getUsrDir() + "/coords/" + name.get());
+                        FileWriter writer = new FileWriter(Util.getUsrDir() + "/coords/temp/" + name.get());
                         writer.write(json.toString());
                         writer.close();
                     } catch (IOException e) {
