@@ -1,6 +1,9 @@
 package gui.controller;
 
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import log.Log;
 import util.Util;
@@ -11,7 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LiveStatsController implements Initializable, PropertyChangeListener {
-
+    public Button SCROT_BUTTON;
     public Text XP_TEXT;
     public Text GOLD_TEXT;
     public Text ZTOKEN_TEXT;
@@ -23,6 +26,7 @@ public class LiveStatsController implements Initializable, PropertyChangeListene
     public void initialize(URL url, ResourceBundle resourceBundle) {
         LOG = Util.getBot().getLog();
         LOG.addPropertyChangeListener(this);
+        scrotButton();
     }
 
     @Override
@@ -45,5 +49,14 @@ public class LiveStatsController implements Initializable, PropertyChangeListene
                 ENEMY_TEXT.setText("Enemies: " + LOG.getEnemies().size());
                 break;
         }
+    }
+
+    private void scrotButton() {
+        SCROT_BUTTON.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                Util.launchScrotStage();
+            }
+        });
     }
 }
