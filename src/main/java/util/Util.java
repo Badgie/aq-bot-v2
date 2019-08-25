@@ -2,10 +2,12 @@ package util;
 
 import bot.Bot;
 import common.RectDimension;
+import javafx.application.Platform;
 import javafx.concurrent.Service;
 import javafx.stage.Stage;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import tools.ScreenCaptureFX;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -13,6 +15,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Random;
 
 public class Util {
@@ -127,6 +131,42 @@ public class Util {
         JSONTokener tokens = new JSONTokener(s);
 
         return new JSONObject(tokens);
+    }
+
+    public static void launchScrotStage() {
+        try {
+            Robot robot = new Robot();
+            ScreenUtil u = new ScreenUtil();
+            ConfigUtil conf = new ConfigUtil();
+
+            BufferedImage screen;
+            Rectangle gameScreen;
+            final RectDimension rectDims;
+
+            if (Files.exists(Paths.get(Util.getUsrDir() + "/config/game-screen.txt"))) {
+                rectDims = conf.getGameScreenConfig();
+            } else {
+                rectDims = u.getGameWindowScreen();
+            }
+
+            gameScreen = new Rectangle(
+                    (int) rectDims.getX(),
+                    (int) rectDims.getY(),
+                    (int) rectDims.getWidth(),
+                    (int) rectDims.getHeight()
+            );
+
+            screen = robot.createScreenCapture(gameScreen);
+
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    new ScreenCaptureFX(screen, rectDims);
+                }
+            });
+        } catch (AWTException | IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
